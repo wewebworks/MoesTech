@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-navy-950: #061a31;
+  --color-navy-900: #0b2545;
+  --color-navy-800: #123a63;
+  --color-navy-700: #1c4a7a;
+  --color-brand: #1f35d6;
+  --color-brand-deep: #0f1f9e;
+  --color-signal: #3fb4ff;
+  --color-mist: #f1f6fb;
+  --color-line: #dbe5ef;
+  --color-slate-ink: #4d6078;
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-sora);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background: #fff;
+  color: var(--color-navy-900);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-sora), system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.container-x {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container-x { padding-inline: 2rem; }
+}
+
+.eyebrow {
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+@keyframes scan {
+  0% { transform: translateY(-10%); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(110%); opacity: 0; }
+}
+@keyframes dash {
+  to { stroke-dashoffset: -40; }
+}
+.twinkle { animation: twinkle 5s ease-in-out infinite; }
+.scan { animation: scan 6s linear infinite; }
+.dash { animation: dash 3s linear infinite; }
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .twinkle, .scan, .dash { animation: none; }
+  * { transition-duration: 0.01ms !important; }
+}
+
+/* Hexagon motif from the van wrap's tech iconography */
+.hex-bg {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><path d='M28 2 54 17v30L28 62 2 47V17zM28 62v33M2 47 0 48M54 47l2 1' fill='none' stroke='%233fb4ff' stroke-opacity='0.16' stroke-width='1'/></svg>");
+  background-size: 56px 97px;
+  -webkit-mask-image: linear-gradient(115deg, transparent 20%, #000 75%);
+  mask-image: linear-gradient(115deg, transparent 20%, #000 75%);
+}
+.slash {
+  clip-path: polygon(38% 0, 100% 0, 100% 100%, 0 100%);
+}
