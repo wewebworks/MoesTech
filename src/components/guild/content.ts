@@ -125,7 +125,7 @@ export const SLIDES: Slide[] = [
     id: "stridely", title: "One More Build: Stridely", seconds: 40,
     notes: [
       "Use this as the proof point, or as the answer to a question about speed. Keep it to 40 seconds.",
-      "Stridely is a separate project: a social step-challenge iPhone app. Lead with the three numbers, then walk the timeline.",
+      "Stridely is a separate project: a social step-challenge iPhone app. Show the three screens first, then the numbers and timeline.",
       "Numbers come from the git history: 38 commits and 12 database migrations between the first and last commit, about 25 hours apart.",
       "The point is the method, not the speed: write the audit and plan first, build in phases, let the server own the rules, test as you go.",
       "Be ready for the question about dates: the commit history shows Oct 14 to 15. Say what you did over the weekend if there was earlier work.",
@@ -413,6 +413,11 @@ export const STRIDELY = {
     { n: "38", label: "commits" },
     { n: "12", label: "database migrations" },
     { n: "~25 h", label: "first to last commit (Oct 14\u201315)" },
+  ],
+  screenshots: [
+    { src: "/stridely/home.jpg", alt: "Stridely home screen with daily goal ring, steps, flights, active time, streak, level and badges", caption: "Home" },
+    { src: "/stridely/insights.jpg", alt: "Stridely home screen with activity rings, Stridely Intelligence insight and weekly goal tracker", caption: "Insights and week" },
+    { src: "/stridely/leaderboard.jpg", alt: "Stridely leaderboard with practice bots and ranking", caption: "Leaderboard" },
   ],
   stack: "Expo SDK 57 · React Native · TypeScript · Supabase (Postgres, RLS) · HealthKit",
   timeline: [
