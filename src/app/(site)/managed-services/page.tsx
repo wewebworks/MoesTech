@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { ServicePage } from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Managed IT & Technology Services in New Jersey",
+  title: "Managed IT & Technology Services",
   description:
-    "Managed IT services in New Jersey and Florida: IT support, VoIP, network support, and ongoing maintenance for commercial properties and multi-location businesses.",
+    "Managed IT services: IT support, VoIP, network support, and ongoing maintenance for commercial properties and multi-location businesses.",
   alternates: { canonical: "/managed-services" },
 };
 
@@ -19,7 +19,7 @@ export default function Page() {
       blocks={[
         {
           id: "managed-it", title: "Managed IT & PC support", status: "confirmed",
-          lead: "RNA Tek offers managed service provider (MSP) support for business IT environments.",
+          lead: "MoeTech offers managed service provider (MSP) support for business IT environments.",
           points: ["IT infrastructure support", "PC management and repair", "Networking support", "Consulting is free"],
         },
         {
@@ -38,7 +38,7 @@ export default function Page() {
           points: ["Shared standards across properties", "Portfolio-level visibility into open service work", "Customer service portal (concept preview available)", "Proactive monitoring, only where scoped and approved"],
         },
       ]}
-      note="Proposed offerings are concepts for discussion. RNA Tek has not committed to 24/7 monitoring or guaranteed response times; any such terms would be defined in a client agreement."
+      note="Proposed offerings are concepts for discussion. MoeTech has not committed to 24/7 monitoring or guaranteed response times; any such terms would be defined in a client agreement."
       whyTitle="Fewer vendors. Fewer surprises. Faster answers."
       why={[
         "When one team installs and supports the system, there is no hand-off to argue about when something fails.",

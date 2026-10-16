@@ -1,36 +1,14 @@
-// Verified details come from rnatek.com (retrieved for this demo).
-// Anything marked DEMO is an explicit assumption and must be confirmed with RNA Tek before launch.
+// MoeTech is a fictional company used to demonstrate end-to-end workflow design.
+// Everything here is placeholder content; no real people, addresses, or phone numbers.
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://rna-tek-demo.vercel.app";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://moes-tech.vercel.app";
 
 export const company = {
-  name: "RNA Tek",
-  legalName: "RNA Tek LLC",
-  tagline: "Committed to Quality",
-  phone: "+1 (201) 588-9040",
-  phoneHref: "tel:+12015889040",
-  email: "info@rnatek.com",
-  hours: "Monday – Friday, 8 am – 10 pm",
-  nj: {
-    label: "New Jersey — Headquarters",
-    street: "877 Prospect St, Unit 3",
-    city: "Glen Rock",
-    region: "NJ",
-    zip: "07452",
-  },
-  fl: {
-    label: "Florida Branch",
-    city: "Doral",
-    region: "FL",
-    // DEMO: street address not published on rnatek.com — confirm with client.
-  },
-  founder: "Roberth Agudelo",
-  social: {
-    linkedin: "https://www.linkedin.com/in/rna-tek-electric-74a5b5229/",
-    facebook: "https://www.facebook.com/RNA-Tek-108492248357710",
-    instagram: "https://www.instagram.com/rna_tek/",
-    x: "https://twitter.com/InfoRnatek",
-  },
+  name: "MoeTech",
+  legalName: "MoeTech",
+  tagline: "Built to be understood",
+  // Placeholder address on a reserved domain. No mailbox exists.
+  email: "hello@moetech.example",
 } as const;
 
 export const nav = {

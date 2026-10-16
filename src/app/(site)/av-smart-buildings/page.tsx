@@ -4,7 +4,7 @@ import { ServicePage } from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Audio / Video, Smart Building & Low-Voltage Systems",
   description:
-    "Commercial audio/video integration, smart-building and smart-home systems, energy management, and low-voltage work from RNA Tek in New Jersey and Florida.",
+    "Commercial audio/video integration, smart-building and smart-home systems, energy management, and low-voltage work from MoeTech.",
   alternates: { canonical: "/av-smart-buildings" },
 };
 

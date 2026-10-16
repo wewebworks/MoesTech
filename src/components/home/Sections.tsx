@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/Button";
 
 export function TrustStrip() {
   const items = [
-    { icon: Landmark, title: "20+ years", text: "of industry experience, per RNA Tek’s company portfolio" },
-    { icon: MapPin, title: "NJ & FL", text: "Headquartered in Glen Rock, NJ with a branch in Doral, FL" },
+    { icon: Landmark, title: "Product-led", text: "Designed around real workflows, from request to completion" },
+    { icon: MapPin, title: "Role-based", text: "Separate views for property managers, dispatch, and technicians" },
     { icon: Layers, title: "Multiple disciplines", text: "Security, networking, IT, voice, AV, and low-voltage" },
     { icon: Wrench, title: "Install + support", text: "The team that builds it is the team that keeps it working" },
   ];
@@ -32,7 +32,7 @@ const confirmed = [
   { t: "Managed IT (MSP)", d: "IT infrastructure support, PC management, and repair." },
   { t: "VoIP & telecommunications", d: "Business phone systems, cabling, installation, and repair." },
   { t: "Network support", d: "Networking, structured cabling, and rack builds." },
-  { t: "System maintenance", d: "Servicing the security, access, and low-voltage systems RNA Tek installs." },
+  { t: "System maintenance", d: "Servicing the security, access, and low-voltage systems MoeTech installs." },
 ];
 const proposed = [
   { t: "Service coordination", d: "One point of contact for every technology request across a property." },
@@ -46,11 +46,11 @@ export function ManagedSection() {
     <section className="bg-mist py-24 md:py-32" id="managed">
       <div className="container-x">
         <SectionHeading eyebrow="Managed services" title={<>From one-time installs to <span className="font-normal text-slate-ink">ongoing responsibility.</span></>}>
-          Most technology problems don&rsquo;t happen on install day. They happen six months later, when nobody owns the system. RNA Tek is shifting its focus from individual projects to long-term support and management.
+          Most technology problems don&rsquo;t happen on install day. They happen six months later, when nobody owns the system. MoeTech is shifting its focus from individual projects to long-term support and management.
         </SectionHeading>
 
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          {[{ kind: "confirmed" as const, label: "What RNA Tek does today", list: confirmed, tone: "bg-white" }, { kind: "proposed" as const, label: "What we propose to add", list: proposed, tone: "bg-white" }].map((col, ci) => (
+          {[{ kind: "confirmed" as const, label: "What MoeTech does today", list: confirmed, tone: "bg-white" }, { kind: "proposed" as const, label: "What we propose to add", list: proposed, tone: "bg-white" }].map((col, ci) => (
             <Reveal key={col.kind} delay={ci * 0.1}>
               <div className={`h-full rounded-md border border-line p-7 sm:p-9 ${col.tone}`}>
                 <div className="flex flex-wrap items-center justify-between gap-3">
@@ -168,7 +168,7 @@ export function ProjectsPreview() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-navy-900">{p.sector}</h3>
-                    <p className="mt-1 text-sm text-slate-ink">Placeholder for a real RNA Tek project and photography.</p>
+                    <p className="mt-1 text-sm text-slate-ink">Placeholder for a real MoeTech project and photography.</p>
                     <ul className="mt-4 flex flex-wrap gap-2">{p.systems.map((s) => <li key={s} className="rounded-md bg-mist px-3 py-1 text-xs font-semibold text-slate-ink">{s}</li>)}</ul>
                   </div>
                 </article>
@@ -188,16 +188,16 @@ export function WhySection() {
     { t: "Long-term relationships", d: "We’re built for the years after installation, when systems need service, changes, and answers." },
     { t: "Practical problem solving", d: "Fix the root cause, document it, and make the next call shorter." },
     { t: "Commercial-property support", d: "Experience with the way commercial and multifamily properties operate." },
-    { t: "NJ and FL presence", d: "Based in Glen Rock, NJ, with a branch in Doral, FL." },
+    { t: "Clear ownership", d: "One accountable record for every request, from submission to completion." },
   ];
   return (
     <section className="bg-white py-24 md:py-32">
       <div className="container-x grid gap-14 lg:grid-cols-[1fr_1.4fr]">
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <SectionHeading eyebrow="Why RNA Tek" title="Technology is only valuable when it keeps working.">
-            RNA Tek was formed by Roberth Agudelo, who brings more than 20 years of experience in telecommunications, networking, and IT.
+          <SectionHeading eyebrow="Why MoeTech" title="Technology is only valuable when it keeps working.">
+            MoeTech is a fictional company used to demonstrate end-to-end service workflows with sample data.
           </SectionHeading>
-          <div className="mt-8"><Button href="/about" variant="outline">About RNA Tek</Button></div>
+          <div className="mt-8"><Button href="/about" variant="outline">About MoeTech</Button></div>
         </div>
         <ul className="grid gap-x-10 gap-y-9 sm:grid-cols-2">
           {items.map((i) => (
@@ -217,7 +217,7 @@ export function PortalTeaser() {
   return (
     <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
       <SectionHeading eyebrow="Concept · Customer service portal preview" title="See every request, from submission to completion.">
-        An interactive concept of a future RNA Tek service portal. It is a design demonstration with sample data, not a live system, and it isn&rsquo;t yet available to customers.
+        An interactive concept of a future MoeTech service portal. It is a design demonstration with sample data, not a live system, and it isn&rsquo;t yet available to customers.
       </SectionHeading>
       <Link href="/portal-preview" className="text-sm font-semibold text-brand underline-offset-4 hover:underline">Open full-page preview →</Link>
     </div>

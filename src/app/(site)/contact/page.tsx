@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
-import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
 import { company } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Contact RNA Tek | Request a Quote or Consultation" },
-  description: "Request a free consultation or quote from RNA Tek in Glen Rock, NJ. Security, networking, managed IT, AV, and low-voltage systems for NJ and FL properties.",
+  title: { absolute: "Contact MoeTech | Request a Quote or Consultation" },
+  description: "A demonstration contact form for MoeTech: security, networking, managed IT, AV, and low-voltage systems.",
   alternates: { canonical: "/contact" },
 };
 
 export default function Page() {
   const rows = [
-    { icon: Phone, label: "Phone", node: <a href={company.phoneHref} className="hover:text-brand">{company.phone}</a> },
     { icon: Mail, label: "Email", node: <a href={`mailto:${company.email}`} className="hover:text-brand">{company.email}</a> },
-    { icon: MapPin, label: company.nj.label, node: <>{company.nj.street}<br />{company.nj.city}, {company.nj.region} {company.nj.zip}</> },
-    { icon: MapPin, label: company.fl.label, node: <>{company.fl.city}, {company.fl.region}</> },
-    { icon: Clock, label: "Hours", node: company.hours },
   ];
   return (
     <>

@@ -116,7 +116,7 @@ export function RequestPhone({ onSubmit, createdId }: { onSubmit: (r: NewRequest
                     </label>
                   ))}
                 </div>
-                <p className="mt-3 text-xs text-slate-ink">Concept only: response commitments for each priority would be defined by RNA Tek.</p>
+                <p className="mt-3 text-xs text-slate-ink">Concept only: response commitments for each priority would be defined by MoeTech.</p>
               </fieldset>
             )}
 
@@ -136,7 +136,7 @@ export function RequestPhone({ onSubmit, createdId }: { onSubmit: (r: NewRequest
               <div className="flex flex-1 flex-col items-center justify-center text-center">
                 <span className="grid size-14 place-items-center rounded-full bg-emerald-100 text-emerald-700"><Check className="size-7" aria-hidden="true" /></span>
                 <p className="mt-4 font-display text-lg text-navy-900">Demo ticket {createdId} created</p>
-                <p className="mt-2 text-sm text-slate-ink" role="status">Concept demo. No request was sent to RNA Tek. Watch it move through the sample dashboard and timeline.</p>
+                <p className="mt-2 text-sm text-slate-ink" role="status">Concept demo. No request was sent to MoeTech. Watch it move through the sample dashboard and timeline.</p>
                 <button onClick={reset} className="mt-5 inline-flex items-center gap-2 rounded-md border border-navy-900/20 px-4 py-2 text-sm font-semibold text-navy-900 hover:border-brand hover:text-brand"><RotateCcw className="size-4" aria-hidden="true" /> Start over</button>
               </div>
             )}

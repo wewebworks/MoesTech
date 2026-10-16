@@ -1,5 +1,5 @@
 // Original illustration: a commercial building elevation with technology overlays.
-// Used in place of stock photography until RNA Tek supplies real project photos.
+// Used in place of stock photography until MoeTech supplies real project photos.
 
 const cols = 9;
 const rows = 12;

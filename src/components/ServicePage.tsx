@@ -33,8 +33,7 @@ export function ServicePage(p: ServicePageProps) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: p.schemaName,
-    provider: { "@type": "ProfessionalService", name: "RNA Tek", url: SITE_URL },
-    areaServed: [{ "@type": "State", name: "New Jersey" }, { "@type": "State", name: "Florida" }],
+    provider: { "@type": "ProfessionalService", name: "MoeTech", url: SITE_URL },
     url: `${SITE_URL}${p.path}`,
   };
   return (

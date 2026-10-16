@@ -3,12 +3,6 @@ import { Logo } from "./Logo";
 import { company, nav, allServices } from "@/lib/site";
 
 export function Footer() {
-  const socials = [
-    ["LinkedIn", company.social.linkedin],
-    ["Facebook", company.social.facebook],
-    ["Instagram", company.social.instagram],
-    ["X", company.social.x],
-  ] as const;
   return (
     <footer className="bg-navy-950 text-white/70">
       <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
@@ -17,11 +11,6 @@ export function Footer() {
           <p className="mt-6 max-w-xs text-sm leading-relaxed">
             Integrated security, networking, and managed technology services for commercial properties, multifamily communities, and growing businesses.
           </p>
-          <ul className="mt-6 flex gap-5 text-sm">
-            {socials.map(([l, h]) => (
-              <li key={l}><a href={h} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-signal">{l}</a></li>
-            ))}
-          </ul>
         </div>
         <nav aria-label="Footer">
           <h2 className="eyebrow mb-5 text-signal">Explore</h2>
@@ -39,13 +28,8 @@ export function Footer() {
         <div className="text-sm">
           <h2 className="eyebrow mb-5 text-signal">Contact</h2>
           <address className="space-y-5 not-italic">
-            <p><span className="block font-semibold text-white">{company.nj.label}</span>{company.nj.street}<br />{company.nj.city}, {company.nj.region} {company.nj.zip}</p>
-            <p><span className="block font-semibold text-white">{company.fl.label}</span>{company.fl.city}, {company.fl.region}</p>
-            <p>
-              <a href={company.phoneHref} className="block hover:text-white">{company.phone}</a>
-              <a href={`mailto:${company.email}`} className="block hover:text-white">{company.email}</a>
-            </p>
-            <p>{company.hours}</p>
+            <p><a href={`mailto:${company.email}`} className="block hover:text-white">{company.email}</a></p>
+            <p>Placeholder contact for this demonstration.</p>
           </address>
         </div>
       </div>

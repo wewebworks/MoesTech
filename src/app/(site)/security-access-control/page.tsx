@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { ServicePage } from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Commercial Security Systems, CCTV & Access Control NJ",
+  title: "Commercial Security Systems, CCTV & Access Control",
   description:
-    "CCTV installation, access control, intercom, alarm, and automated gate systems for commercial and multifamily properties in New Jersey and Florida.",
+    "CCTV installation, access control, intercom, alarm, and automated gate systems for commercial and multifamily properties.",
   alternates: { canonical: "/security-access-control" },
 };
 

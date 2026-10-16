@@ -27,7 +27,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy-950/90 backdrop-blur-xl">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-navy-900">Skip to content</a>
       <div className="container-x flex h-[4.5rem] items-center justify-between gap-6">
-        <Link href="/" aria-label="RNA Tek home"><Logo className="h-9 w-auto" /></Link>
+        <Link href="/" aria-label="MoeTech home"><Logo className="h-9 w-auto" /></Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
           {nav.primary.map((n) => <Link key={n.href} href={n.href} className={link}>{n.label}</Link>)}

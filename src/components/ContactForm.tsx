@@ -56,7 +56,7 @@ export function ContactForm() {
         <p className="eyebrow text-brand">Demo form — nothing was sent</p>
         <h3 className="mt-3 text-2xl font-semibold text-navy-900">Your details look good.</h3>
         <p className="mt-3 text-slate-ink">
-          This demonstration site isn&rsquo;t connected to a backend, so your message has not been delivered. To reach RNA Tek now, open it in your email app or call {company.phone}.
+          This demonstration site isn&rsquo;t connected to a backend, so your message has not been delivered. To reach MoeTech now, open it in your email app.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <a href={mailto} className="inline-flex items-center gap-2 rounded-md bg-navy-900 px-6 py-3.5 text-sm font-semibold text-white hover:bg-brand"><Mail className="size-4" aria-hidden="true" /> Open in email app</a>

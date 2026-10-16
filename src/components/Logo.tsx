@@ -1,14 +1,9 @@
-import Image from "next/image";
-
-export function Logo({ variant = "white", className = "h-10 w-auto" }: { variant?: "white" | "color"; className?: string }) {
+// Text wordmark: no image assets, no third-party branding.
+export function Logo({ variant = "white", className = "" }: { variant?: "white" | "color"; className?: string }) {
+  const base = variant === "white" ? "text-white" : "text-navy-900";
   return (
-    <Image
-      src={variant === "white" ? "/brand/logo-white.png" : "/brand/logo-color.png"}
-      alt="RNA Tek — Committed to Quality"
-      width={1503}
-      height={528}
-      className={className}
-      priority
-    />
+    <span className={`font-display text-2xl font-semibold tracking-tight ${base} ${className.replace(/\bh-\d+\b|\bw-auto\b/g, "")}`} aria-label="MoeTech">
+      Moe<span className="text-signal">Tech</span>
+    </span>
   );
 }

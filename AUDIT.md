@@ -63,5 +63,5 @@ Not tested: real projector, Safari/Firefox, screen readers, any automated test s
 
 ## 7. Known caveats
 
-- The portal pages themselves are still branded "RNA Tek" and the page `<title>` says so. The presentation uses "MoeTech". Check this before presenting to a Sun Life audience.
+- All pages, metadata, and the logo are now MoeTech-branded; no real company names, addresses, phone numbers, or social links remain. The contact email is a placeholder (`hello@moetech.example`).
 - Technology marks on the Tech Stack slide are simplified original glyphs, not official logos.

@@ -12,7 +12,7 @@ type ManagerTab = "requests" | "new" | "properties";
 
 const roles: { id: Role; label: string; sub: string; icon: typeof UserRound }[] = [
   { id: "manager", label: "Property Manager", sub: "Submits & follows requests", icon: Building2 },
-  { id: "dispatch", label: "RNA Tek Dispatch", sub: "Assigns, schedules, orders", icon: Headset },
+  { id: "dispatch", label: "MoeTech Dispatch", sub: "Assigns, schedules, orders", icon: Headset },
   { id: "tech", label: "Technician", sub: "Works the visit on site", icon: HardHat },
 ];
 
@@ -194,8 +194,8 @@ export function PortalSimulator() {
               <Detail t={selected}>
                 {role === "manager" && (
                   <form onSubmit={(e) => { e.preventDefault(); if (text.trim()) act(selected.id, {}, "Property Manager", "message", text.trim()); }} className="flex gap-2">
-                    <label htmlFor="sim-msg" className="sr-only">Message to RNA Tek</label>
-                    <input id="msg" value={text} onChange={(e) => setText(e.target.value)} placeholder="Message RNA Tek about this request…" className="min-w-0 flex-1 rounded-md border border-line px-3 py-2.5 text-sm focus:border-brand focus:outline-none" />
+                    <label htmlFor="sim-msg" className="sr-only">Message to MoeTech</label>
+                    <input id="msg" value={text} onChange={(e) => setText(e.target.value)} placeholder="Message MoeTech about this request…" className="min-w-0 flex-1 rounded-md border border-line px-3 py-2.5 text-sm focus:border-brand focus:outline-none" />
                     <button className="inline-flex items-center gap-2 rounded-md bg-navy-900 px-4 text-sm font-semibold text-white hover:bg-brand"><MessageSquare className="size-4" aria-hidden="true" /> Send</button>
                   </form>
                 )}

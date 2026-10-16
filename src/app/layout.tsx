@@ -10,18 +10,18 @@ const mono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], dis
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "RNA Tek | Managed Technology Services for Commercial Properties in NJ & FL",
-    template: "%s | RNA Tek",
+    default: "MoeTech | Managed Technology Services for Commercial Properties",
+    template: "%s | MoeTech",
   },
   description:
-    "RNA Tek installs, services, and supports security, access control, networking, and managed IT for commercial properties, multifamily communities, and multi-location businesses in New Jersey and Florida.",
+    "MoeTech is a fictional company used to demonstrate end-to-end service workflows: security, access control, networking, and managed IT for commercial properties.",
   openGraph: {
     type: "website",
-    siteName: "RNA Tek",
+    siteName: "MoeTech",
     locale: "en_US",
-    title: "RNA Tek — Your Technology. Our Responsibility.",
+    title: "MoeTech — Technology that works",
     description:
-      "One partner for security, networking, and managed technology services across your properties.",
+      "A concept demonstration of one connected workflow from service request to completed work.",
   },
   twitter: { card: "summary_large_image" },
   // Demo build: keep out of search indexes until the client approves a launch.

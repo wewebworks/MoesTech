@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Our Work | Project Case Study Framework",
-  description: "How RNA Tek projects will be presented: property type, systems installed, challenges, and ongoing support. Demonstration content pending real project data.",
+  description: "How MoeTech projects will be presented: property type, systems installed, challenges, and ongoing support. Demonstration content pending real project data.",
   alternates: { canonical: "/projects" },
 };
 
@@ -24,7 +24,7 @@ export default function Page() {
   return (
     <>
       <PageHero eyebrow="Our work" title={<>Projects, <span className="text-signal">told properly.</span></>}>
-        This page shows the format RNA Tek project case studies will follow. Every card below is demonstration content, not a completed project or client, and will be replaced with real work and photography.
+        This page shows the format MoeTech project case studies will follow. Every card below is demonstration content, not a completed project or client, and will be replaced with real work and photography.
       </PageHero>
 
       <section className="bg-white py-20 md:py-28">
@@ -40,7 +40,7 @@ export default function Page() {
                     </div>
                     <div className="p-6">
                       <h2 className="text-lg font-semibold text-navy-900">{p.sector}</h2>
-                      <p className="mt-1 text-sm text-slate-ink">Project name, location, and photos to come from RNA Tek.</p>
+                      <p className="mt-1 text-sm text-slate-ink">Project name, location, and photos to come from MoeTech.</p>
                       <ul className="mt-4 flex flex-wrap gap-2">{p.systems.map((s) => <li key={s} className="rounded-md bg-mist px-3 py-1 text-xs font-semibold text-slate-ink">{s}</li>)}</ul>
                     </div>
                   </article>
@@ -56,7 +56,7 @@ export default function Page() {
           <SectionHeading eyebrow="What each case study will include" title="Real work, clearly documented." />
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Camera, t: "Real photography", d: "Installed work, racks, and equipment from actual RNA Tek jobs." },
+              { icon: Camera, t: "Real photography", d: "Installed work, racks, and equipment from actual MoeTech jobs." },
               { icon: ListChecks, t: "Systems installed", d: "Which disciplines were delivered and how they integrate." },
               { icon: FileCheck2, t: "Challenge & approach", d: "What the property needed and how it was solved." },
               { icon: Building2, t: "Ongoing support", d: "What happens after install, where applicable." },

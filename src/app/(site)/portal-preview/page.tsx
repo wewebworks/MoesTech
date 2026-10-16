@@ -8,7 +8,7 @@ import { ReturnBar } from "@/components/guild/ReturnBar";
 
 export const metadata: Metadata = {
   title: "Service Portal Preview (Concept)",
-  description: "An interactive concept of a future RNA Tek customer service portal: property manager, dispatch, and technician views. Sample data only.",
+  description: "An interactive concept of a future MoeTech customer service portal: property manager, dispatch, and technician views. Sample data only.",
   alternates: { canonical: "/portal-preview" },
 };
 
@@ -17,7 +17,7 @@ export default function PortalPreviewPage() {
     <>
       <PageHero
         eyebrow="Client login · Request service · Concept"
-        title={<>The RNA Tek service portal, <span className="text-signal">previewed.</span></>}
+        title={<>The MoeTech service portal, <span className="text-signal">previewed.</span></>}
         cta={{ href: "#request", label: "Try a service request" }}
         secondary={{ href: "#simulation", label: "Run the full simulation" }}
       >
@@ -34,7 +34,7 @@ export default function PortalPreviewPage() {
       <section id="simulation" className="scroll-mt-20 bg-white py-20 md:py-28">
         <div className="container-x">
           <SectionHeading eyebrow="Full simulation" title="One request. Three people. Zero phone tag.">
-            Switch roles to see how a single service request moves between the property manager, RNA Tek dispatch, and the technician on site. Each role can only take its own actions, and every step lands in a shared activity log.
+            Switch roles to see how a single service request moves between the property manager, MoeTech dispatch, and the technician on site. Each role can only take its own actions, and every step lands in a shared activity log.
           </SectionHeading>
           <div className="mt-12"><PortalSimulator /></div>
 

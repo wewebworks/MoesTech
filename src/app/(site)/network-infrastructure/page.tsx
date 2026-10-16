@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { ServicePage } from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Commercial Network Cabling & Infrastructure NJ",
+  title: "Commercial Network Cabling & Infrastructure",
   description:
-    "Structured cabling, network infrastructure, rack builds, and VoIP for commercial properties and businesses in New Jersey and Florida.",
+    "Structured cabling, network infrastructure, rack builds, and VoIP for commercial properties and businesses.",
   alternates: { canonical: "/network-infrastructure" },
 };
 

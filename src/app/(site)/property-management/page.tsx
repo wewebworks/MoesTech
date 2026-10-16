@@ -4,7 +4,7 @@ import { ServicePage } from "@/components/ServicePage";
 export const metadata: Metadata = {
   title: "Property Management Technology Services & Multifamily Security",
   description:
-    "One technology partner for property managers: multifamily security systems, access control, intercom, network, and managed IT with coordinated service in NJ and FL.",
+    "One technology partner for property managers: multifamily security systems, access control, intercom, network, and managed IT with coordinated service.",
   alternates: { canonical: "/property-management" },
 };
 

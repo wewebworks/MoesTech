@@ -8,9 +8,9 @@ import { CtaBand } from "@/components/CtaBand";
 import { ManagedSection, PortalTeaser, ProcessSection, ProjectsPreview, PropertySection, TrustStrip, WhySection } from "@/components/home/Sections";
 
 export const metadata: Metadata = {
-  title: { absolute: "Managed IT & Security Systems for Commercial Properties | RNA Tek NJ & FL" },
+  title: { absolute: "Managed IT & Security Systems for Commercial Properties | MoeTech" },
   description:
-    "Managed IT, CCTV, access control, intercom, and network cabling for commercial properties and multifamily communities in New Jersey and Florida. One partner to install, service, and support.",
+    "Managed IT, CCTV, access control, intercom, and network cabling for commercial properties and multifamily communities. One partner to install, service, and support.",
   alternates: { canonical: "/" },
 };
 
@@ -23,7 +23,7 @@ export default function Home() {
         <div className="slash pointer-events-none absolute bottom-0 right-0 h-10 w-[55%] bg-white md:h-14" aria-hidden="true" />
         <div className="container-x grid items-center gap-8 pb-16 pt-32 md:pb-24 md:pt-40 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
-            <p className="eyebrow mb-7 flex items-center gap-3 text-signal"><span className="h-0.5 w-8 bg-signal" aria-hidden="true" />Your Technology. Our Responsibility.</p>
+            <p className="eyebrow mb-7 flex items-center gap-3 text-signal"><span className="h-0.5 w-8 bg-signal" aria-hidden="true" />Built to be understood.</p>
             <h1 className="text-[2.8rem] font-semibold leading-[0.96] sm:text-6xl xl:text-[5.2rem]">
               Technology That Works.{" "}
               <span className="font-normal text-white/50">Service You Can Count On.</span>
@@ -35,7 +35,7 @@ export default function Home() {
               <Button href="/managed-services">Explore Managed Services</Button>
               <Button href="/contact" variant="ghost">Request a Consultation</Button>
             </div>
-            <p className="eyebrow mt-12 text-white/45">Glen Rock, NJ · Doral, FL</p>
+            <p className="eyebrow mt-12 text-white/45">Concept demonstration · Sample data</p>
           </div>
           <div className="mx-auto w-full max-w-md lg:max-w-none">
             <BuildingArt className="h-auto w-full" />
