@@ -36,7 +36,7 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container-x flex flex-col gap-2 py-6 text-xs text-white/45 md:flex-row md:justify-between">
           <p>© 2026 {company.legalName}. All rights reserved.</p>
-          <p>Design demonstration by WeWebWorks — concept content and sample data are labeled throughout.</p>
+          <p>Concept demonstration. Content and sample data are labeled throughout.</p>
         </div>
       </div>
     </footer>

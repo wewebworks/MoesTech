@@ -8,7 +8,7 @@ MoeTech is a fictional field-service company used to demonstrate one connected w
     npm run lint && npx tsc --noEmit && npm run build
 
 ## Deploy
-Push to https://github.com/wewebworks/MoesTech; Vercel imports it (framework: Next.js, no env vars). Optional: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_ALLOW_INDEXING=true` (indexing is off by default).
+Push to the project's GitHub repository; Vercel imports it (framework: Next.js, no env vars). Optional: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_ALLOW_INDEXING=true` (indexing is off by default).
 
 ## Content integrity
 - MoeTech is fictional. All people, properties, tickets, and statuses are sample data.

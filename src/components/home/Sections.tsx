@@ -217,7 +217,7 @@ export function PortalTeaser() {
   return (
     <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
       <SectionHeading eyebrow="Concept · Customer service portal preview" title="See every request, from submission to completion.">
-        An interactive concept of a future MoeTech service portal. It is a design demonstration with sample data, not a live system, and it isn&rsquo;t yet available to customers.
+        An interactive demonstration of the MoeTech service portal. The product is about 90% complete and in client beta; this preview runs on sample data and is not connected to a live system.
       </SectionHeading>
       <Link href="/portal-preview" className="text-sm font-semibold text-brand underline-offset-4 hover:underline">Open full-page preview →</Link>
     </div>

@@ -52,7 +52,7 @@ export const statusStyle = (s: Status) =>
 export const SAMPLE_PHOTO =
   "data:image/svg+xml;utf8," +
   encodeURIComponent(
-    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'><rect width='320' height='200' fill='#14213d'/><rect x='110' y='50' width='100' height='100' rx='8' fill='#0a1224' stroke='#3fb4ff'/><circle cx='160' cy='100' r='26' fill='none' stroke='#3fb4ff' stroke-width='3'/><circle cx='160' cy='100' r='9' fill='#3fb4ff'/><text x='160' y='180' font-family='monospace' font-size='11' fill='#3fb4ff' text-anchor='middle'>SAMPLE PHOTO</text></svg>",
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 200'><rect width='320' height='200' fill='#14213d'/><rect x='110' y='50' width='100' height='100' rx='8' fill='#0a1224' stroke='#ffc72c'/><circle cx='160' cy='100' r='26' fill='none' stroke='#ffc72c' stroke-width='3'/><circle cx='160' cy='100' r='9' fill='#ffc72c'/><text x='160' y='180' font-family='monospace' font-size='11' fill='#ffc72c' text-anchor='middle'>SAMPLE PHOTO</text></svg>",
   );
 
 // ---- simulated clock -------------------------------------------------------

@@ -8,7 +8,7 @@ import { ReturnBar } from "@/components/guild/ReturnBar";
 
 export const metadata: Metadata = {
   title: "Service Portal Preview (Concept)",
-  description: "An interactive concept of a future MoeTech customer service portal: property manager, dispatch, and technician views. Sample data only.",
+  description: "An interactive sample-data demonstration of the MoeTech service portal: property manager, dispatch, and technician views.",
   alternates: { canonical: "/portal-preview" },
 };
 
@@ -21,7 +21,7 @@ export default function PortalPreviewPage() {
         cta={{ href: "#request", label: "Try a service request" }}
         secondary={{ href: "#simulation", label: "Run the full simulation" }}
       >
-        The website and the customer portal are separate products that sit side by side. This is a conceptual demo with sample data. The portal is not yet available, and no real sign-in or ticketing exists.
+        The website and the customer portal are separate products that sit side by side. This page is a sample-data demonstration of the workflow. The product is about 90% complete and in beta with clients; nothing on this page is saved or sent, and there is no real sign-in.
       </PageHero>
 
       <section className="bg-mist py-20 md:py-28">
@@ -41,7 +41,7 @@ export default function PortalPreviewPage() {
           <div className="mt-16 rounded-md border border-line bg-mist p-7 sm:p-9">
             <h2 className="text-xl font-semibold text-navy-900">Built to connect later</h2>
             <p className="mt-3 max-w-3xl text-slate-ink">
-              In a future phase, this experience could connect to a separate customer portal and back-office tools (for example Supabase, Monday.com, and QuickBooks). None of those integrations exist in this demonstration.
+              In the beta, Monday.com is the source of truth for tickets and is integrated with QuickBooks for billing. This demonstration simulates that behavior with in-browser sample data and does not call either system.
             </p>
           </div>
         </div>

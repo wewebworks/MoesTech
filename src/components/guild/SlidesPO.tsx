@@ -59,8 +59,8 @@ export function JourneySlide() {
             </div>
             <div className="hidden items-center lg:flex" aria-hidden="true"><ArrowRight className="size-6 text-white/40" /></div>
             <div className="rounded-lg border border-white/15 bg-white/5 p-5">
-              <p className="eyebrow flex items-center gap-2 text-amber-300"><Cpu className="size-4" aria-hidden="true" /> Claude Code contribution</p>
-              <ul className="mt-3 space-y-1.5 text-base text-white md:text-lg">{CLAUDE.map((m) => <li key={m} className="flex gap-3"><Check className="mt-1.5 size-4 shrink-0 text-amber-300" aria-hidden="true" />{m}</li>)}</ul>
+              <p className="eyebrow flex items-center gap-2 text-orange-300"><Cpu className="size-4" aria-hidden="true" /> Claude Code contribution</p>
+              <ul className="mt-3 space-y-1.5 text-base text-white md:text-lg">{CLAUDE.map((m) => <li key={m} className="flex gap-3"><Check className="mt-1.5 size-4 shrink-0 text-orange-300" aria-hidden="true" />{m}</li>)}</ul>
             </div>
           </div>
           <ol className="mt-4 grid gap-3 md:grid-cols-3" aria-label="Example: requirement to implementation">
@@ -85,8 +85,8 @@ export function JourneySlide() {
           <div className="mt-4 grid gap-4 md:grid-cols-2" aria-live="polite">
             <div className="rounded-lg border border-white/15 bg-white/5 p-5"><p className="eyebrow text-signal">Human · {j.stage}</p>
               <ul className="mt-3 space-y-1.5 text-base text-white md:text-lg">{j.human.map((h) => <li key={h} className="flex gap-3"><Check className="mt-1.5 size-4 shrink-0 text-signal" aria-hidden="true" />{h}</li>)}</ul></div>
-            <div className="rounded-lg border border-white/15 bg-white/5 p-5"><p className="eyebrow text-amber-300">Claude Code · {j.stage}</p>
-              <ul className="mt-3 space-y-1.5 text-base text-white md:text-lg">{j.ai.map((h) => <li key={h} className="flex gap-3"><Check className="mt-1.5 size-4 shrink-0 text-amber-300" aria-hidden="true" />{h}</li>)}</ul></div>
+            <div className="rounded-lg border border-white/15 bg-white/5 p-5"><p className="eyebrow text-orange-300">Claude Code · {j.stage}</p>
+              <ul className="mt-3 space-y-1.5 text-base text-white md:text-lg">{j.ai.map((h) => <li key={h} className="flex gap-3"><Check className="mt-1.5 size-4 shrink-0 text-orange-300" aria-hidden="true" />{h}</li>)}</ul></div>
           </div>
         </>
       )}

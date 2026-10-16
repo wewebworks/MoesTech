@@ -32,11 +32,11 @@ export function OwnershipSlide() {
           <div className="my-2 flex justify-around text-signal" aria-hidden="true">{single ? [0, 1, 2].map((i) => <span key={i}>↓</span>) : <span className="text-xs text-rose-200">which one is right?</span>}</div>
           <div className={`rounded-md border p-4 text-center ${single ? "border-signal bg-signal/15" : "border-dashed border-white/20 bg-white/[0.03]"}`}>
             <p className="font-display text-lg font-semibold text-white">{single ? "Monday.com: one operational record" : "No single owner"}</p>
-            <p className="mt-1 text-sm text-white/70">{single ? "The integration layer validates and synchronizes. Interfaces read and request. (Intended design: not connected.)" : "Every interface can change its own version. Disagreements are found by people, late."}</p>
+            <p className="mt-1 text-sm text-white/70">{single ? "The integration layer validates and synchronizes. Interfaces read and request. (Beta design; the demo simulates it.)" : "Every interface can change its own version. Disagreements are found by people, late."}</p>
           </div>
         </div>
         <div className="rounded-lg border border-white/15 bg-white/5 p-4">
-          <p className="eyebrow mb-2 text-white/60">Who owns what (intended)</p>
+          <p className="eyebrow mb-2 text-white/60">Who owns what</p>
           <table className="w-full text-left text-sm md:text-base">
             <tbody>
               {OWNERSHIP_ROWS.map((r) => (
@@ -47,7 +47,7 @@ export function OwnershipSlide() {
               ))}
             </tbody>
           </table>
-          <p className="mt-2 text-xs text-white/50">Monday.com for operations, QuickBooks for finance. Neither is connected in the prototype.</p>
+          <p className="mt-2 text-xs text-white/50">Monday.com for operations (source of truth), integrated with QuickBooks for finance. The demo simulates both.</p>
         </div>
       </div>
       <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Integration concerns">
@@ -103,8 +103,8 @@ export function ApiSlide() {
   return (
     <Frame compact wide eyebrow="Section 8 · API walkthrough" title="One ticket, end to end.">
       <div className="mb-3 flex flex-wrap items-center gap-3">
-        <Tag kind="Planned" />
-        <p className="text-sm font-semibold text-amber-200 md:text-base">Proposed API Flow. Not connected: the prototype does not call Monday.com or QuickBooks. All data is fictional.</p>
+        <Tag kind="Simulated" />
+        <p className="text-sm font-semibold text-orange-200 md:text-base">Proposed API Flow, illustrative. The live demo does not call Monday.com or QuickBooks. All data is fictional.</p>
       </div>
       <div className="grid grid-cols-4 gap-2">
         {LANES.map((l, n) => {

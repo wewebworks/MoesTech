@@ -6,8 +6,8 @@ export type SlideProps = { go: (i: number) => void; launchDemo: () => void; acti
 
 const tagStyle: Record<Status3, string> = {
   Implemented: "bg-emerald-400/15 text-emerald-300 ring-emerald-300/30",
-  Simulated: "bg-signal/15 text-signal ring-signal/30",
-  Planned: "bg-amber-400/15 text-amber-300 ring-amber-300/30",
+  Simulated: "bg-sky/15 text-sky ring-sky/30",
+  Planned: "bg-orange-400/15 text-orange-300 ring-orange-300/30",
 };
 export function Tag({ kind }: { kind: Status3 }) {
   return <span className={`eyebrow inline-block rounded-md px-2.5 py-1 ring-1 ${tagStyle[kind]}`}>{kind}</span>;

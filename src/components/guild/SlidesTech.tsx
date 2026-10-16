@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Play } from "lucide-react";
-import { ARCH, STACK, type Tech } from "./content";
+import { ARCH, PROJECT_STATUS, STACK, type Tech } from "./content";
 import { Frame, Tag, btnPrimary, type SlideProps } from "./ui";
 
 // Simple original glyphs for technologies that are actually used. Others show a neutral dot.
@@ -42,14 +42,15 @@ function Mark({ kind }: { kind?: string }) {
   }
 }
 
-const dot = { Implemented: "bg-emerald-400", Simulated: "bg-signal", Planned: "bg-amber-300" } as const;
+const dot = { Implemented: "bg-emerald-400", Simulated: "bg-sky", Planned: "bg-orange-300" } as const;
 
 // ---------------------------------------------------------------- Tech stack
 export function StackSlide() {
   const all = STACK.flatMap((g) => g.items);
   const [sel, setSel] = useState<Tech>(all[0]);
   return (
-    <Frame compact wide eyebrow="Section 5 · Tech stack" title="What is actually built, and what is still planned.">
+    <Frame compact wide eyebrow="Section 5 · Tech stack" title="The actual tech stack, and how we know.">
+      <p className="mb-3 inline-block rounded-md border border-signal/50 bg-signal/10 px-4 py-2 text-sm font-semibold text-signal md:text-base">{PROJECT_STATUS}</p>
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {STACK.map((g) => (
           <section key={g.id} aria-label={g.label} className="rounded-lg border border-white/12 bg-white/[0.04] p-3">
@@ -79,9 +80,9 @@ export function StackSlide() {
       </div>
       <p className="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-white/50">
         <span><i className="mr-1.5 inline-block size-2 rounded-full bg-emerald-400" />Implemented</span>
-        <span><i className="mr-1.5 inline-block size-2 rounded-full bg-signal" />Simulated</span>
-        <span><i className="mr-1.5 inline-block size-2 rounded-full bg-amber-300" />Planned (dashed)</span>
-        <span>Read from package.json and the repository, not from the plan.</span>
+        <span><i className="mr-1.5 inline-block size-2 rounded-full bg-sky" />Simulated</span>
+        <span><i className="mr-1.5 inline-block size-2 rounded-full bg-orange-300" />Planned (dashed)</span>
+        <span>Versions are read from package.json. Items marked author-reported are not in this repository.</span>
       </p>
     </Frame>
   );
@@ -99,12 +100,12 @@ const BOX: Record<string, Pt> = {
 };
 
 const FLOWS = [
-  { d: "M260,111 C320,111 320,190 370,190", c: "#3fb4ff" },
-  { d: "M260,221 C320,221 330,225 370,225", c: "#3fb4ff" },
-  { d: "M260,331 C320,331 320,260 370,260", c: "#3fb4ff" },
-  { d: "M570,185 C640,185 640,92 700,92", c: "#3fb4ff", label: "write", lx: 596, ly: 120 },
-  { d: "M700,150 C640,150 640,215 570,215", c: "#fcd34d", label: "webhook", lx: 592, ly: 240 },
-  { d: "M570,262 C640,262 640,345 700,345", c: "#3fb4ff", label: "billable facts", lx: 570, ly: 328 },
+  { d: "M260,111 C320,111 320,190 370,190", c: "#ffc72c" },
+  { d: "M260,221 C320,221 330,225 370,225", c: "#ffc72c" },
+  { d: "M260,331 C320,331 320,260 370,260", c: "#ffc72c" },
+  { d: "M570,185 C640,185 640,92 700,92", c: "#ffc72c", label: "write", lx: 596, ly: 120 },
+  { d: "M700,150 C640,150 640,215 570,215", c: "#5cc2ff", label: "webhook", lx: 592, ly: 240 },
+  { d: "M815,194 L815,290", c: "#ffc72c", label: "native integration", lx: 826, ly: 246 },
 ];
 
 export function ArchitectureSlide({ launchDemo }: SlideProps) {
@@ -117,45 +118,45 @@ export function ArchitectureSlide({ launchDemo }: SlideProps) {
       <g key={id} role="button" tabIndex={0} aria-label={`${label}: ${sub}`} aria-pressed={on} className="cursor-pointer outline-none"
         onClick={() => setSel(id)} onKeyDown={(e) => { if (e.key === "Enter") setSel(id); }}>
         <rect x={b.x} y={b.y} width={b.w} height={b.h} rx="10"
-          fill={opts.hl ? "rgba(63,180,255,0.16)" : "rgba(255,255,255,0.05)"}
-          stroke={on ? "#ffffff" : opts.hl ? "#3fb4ff" : opts.dashed ? "#fcd34d" : "rgba(255,255,255,0.35)"}
+          fill={opts.hl ? "rgba(255,199,44,0.14)" : "rgba(255,255,255,0.05)"}
+          stroke={on ? "#ffffff" : opts.hl ? "#ffc72c" : opts.dashed ? "#5cc2ff" : "rgba(255,255,255,0.35)"}
           strokeWidth={on || opts.hl ? 2.5 : 1.5} strokeDasharray={opts.dashed ? "6 5" : undefined} />
         <text x={b.x + b.w / 2} y={b.y + b.h / 2 - (opts.hl ? 8 : 2)} textAnchor="middle" fill="#fff" fontSize="20" fontWeight="700">{label}</text>
-        <text x={b.x + b.w / 2} y={b.y + b.h / 2 + (opts.hl ? 14 : 18)} textAnchor="middle" fill={opts.hl ? "#3fb4ff" : "rgba(255,255,255,0.65)"} fontSize="12" fontWeight="700" letterSpacing="0.2">{sub}</text>
+        <text x={b.x + b.w / 2} y={b.y + b.h / 2 + (opts.hl ? 14 : 18)} textAnchor="middle" fill={opts.hl ? "#ffc72c" : "rgba(255,255,255,0.65)"} fontSize="12" fontWeight="700" letterSpacing="0.2">{sub}</text>
       </g>
     );
   };
   return (
-    <Frame compact wide eyebrow="Section 6 · Architecture" title="Three interfaces. One integration layer. Two systems of record.">
+    <Frame compact wide eyebrow="Section 6 · Architecture" title="Three interfaces. One integration layer. Monday.com as the source of truth.">
       <div className="grid gap-5 xl:grid-cols-[1.7fr_1fr]">
         <div className="rounded-lg border border-white/15 bg-white/[0.04] p-3">
-          <svg viewBox="0 0 940 440" className="w-full" role="group" aria-label="Architecture diagram. Animated lines show proposed data flow.">
+          <svg viewBox="0 0 940 470" className="w-full" role="group" aria-label="Architecture diagram. Animated lines show data flow.">
             <defs>
-              <marker id="ah-sig" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9z" fill="#3fb4ff" /></marker>
-              <marker id="ah-amber" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9z" fill="#fcd34d" /></marker>
+              <marker id="ah-sig" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9z" fill="#ffc72c" /></marker>
+              <marker id="ah-sky" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9z" fill="#5cc2ff" /></marker>
             </defs>
-            <rect x="10" y="20" width="270" height="400" rx="14" fill="none" stroke="rgba(63,180,255,0.4)" strokeDasharray="2 6" />
-            <text x="24" y="46" fill="#3fb4ff" fontSize="14" fontWeight="800" letterSpacing="1.5">MOETECH WEB APPLICATION</text>
+            <rect x="10" y="20" width="270" height="400" rx="14" fill="none" stroke="rgba(255,199,44,0.4)" strokeDasharray="2 6" />
+            <text x="24" y="46" fill="#ffc72c" fontSize="14" fontWeight="800" letterSpacing="1.5">MOETECH WEB APPLICATION</text>
             {FLOWS.map((f, i) => (
               <g key={i}>
-                <path d={f.d} fill="none" stroke={f.c} strokeWidth="2.2" className="flow" opacity="0.9" markerEnd={f.c === "#fcd34d" ? "url(#ah-amber)" : "url(#ah-sig)"} />
+                <path d={f.d} fill="none" stroke={f.c} strokeWidth="2.2" className="flow" opacity="0.9" markerEnd={f.c === "#5cc2ff" ? "url(#ah-sky)" : "url(#ah-sig)"} />
                 {f.label && <text x={f.lx} y={f.ly} fill={f.c} fontSize="14" fontWeight="700">{f.label}</text>}
               </g>
             ))}
             {g("pm", "Property Manager", "IMPLEMENTED", {})}
             {g("dispatch", "Dispatch", "IMPLEMENTED", {})}
             {g("tech", "Technician", "IMPLEMENTED", {})}
-            {g("layer", "Backend / API layer", "PLANNED · NOT BUILT", { dashed: true })}
+            {g("layer", "Backend / API layer", "IMPLEMENTED · BETA", {})}
             {g("monday", "Monday.com", "OPERATIONAL SOURCE OF TRUTH", { hl: true, dashed: true })}
             {g("qb", "QuickBooks", "FINANCIAL SYSTEM OF RECORD", { dashed: true })}
             <g aria-hidden="true">
-              <rect x="700" y="14" width="230" height="22" rx="4" fill="rgba(252,211,77,0.15)" stroke="rgba(252,211,77,0.5)" />
-              <text x="815" y="29" textAnchor="middle" fill="#fcd34d" fontSize="13" fontWeight="800" letterSpacing="1">SIMULATED INTEGRATION</text>
-              <rect x="700" y="258" width="230" height="22" rx="4" fill="rgba(252,211,77,0.15)" stroke="rgba(252,211,77,0.5)" />
-              <text x="815" y="273" textAnchor="middle" fill="#fcd34d" fontSize="13" fontWeight="800" letterSpacing="1">SIMULATED INTEGRATION</text>
+              <rect x="700" y="14" width="230" height="22" rx="4" fill="rgba(92,194,255,0.15)" stroke="rgba(92,194,255,0.5)" />
+              <text x="815" y="29" textAnchor="middle" fill="#5cc2ff" fontSize="13" fontWeight="800" letterSpacing="1">SIMULATED INTEGRATION</text>
+              <rect x="700" y="428" width="230" height="22" rx="4" fill="rgba(92,194,255,0.15)" stroke="rgba(92,194,255,0.5)" />
+              <text x="815" y="443" textAnchor="middle" fill="#5cc2ff" fontSize="13" fontWeight="800" letterSpacing="1">SIMULATED INTEGRATION</text>
             </g>
           </svg>
-          <p className="px-2 pb-1 text-xs text-white/55">Animated lines show the proposed data flow. Solid boxes work in the prototype; dashed boxes are not connected. Click any box.</p>
+          <p className="px-2 pb-1 text-xs text-white/55">Animated lines show the data flow. Solid boxes exist; dashed boxes are simulated in this demo. Click any box.</p>
         </div>
         <div className="flex flex-col gap-4">
           <div className="flex-1 rounded-lg border border-white/15 bg-white/5 p-5" aria-live="polite">

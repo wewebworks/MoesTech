@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-navy-950: #061a31;
-  --color-navy-900: #0b2545;
-  --color-navy-800: #123a63;
-  --color-navy-700: #1c4a7a;
-  --color-brand: #1f35d6;
-  --color-brand-deep: #0f1f9e;
-  --color-signal: #3fb4ff;
-  --color-mist: #f1f6fb;
-  --color-line: #dbe5ef;
-  --color-slate-ink: #4d6078;
+  --color-navy-950: #00172e;
+  --color-navy-900: #002b52;
+  --color-navy-800: #00427a;
+  --color-navy-700: #0a5aa0;
+  --color-brand: #0072ce;
+  --color-brand-deep: #00539b;
+  --color-signal: #ffc72c;
+  --color-sky: #5cc2ff;
+  --color-mist: #f2f6fa;
+  --color-line: #d9e3ee;
+  --color-slate-ink: #4a5d73;
   --font-sans: var(--font-manrope);
   --font-display: var(--font-sora);
   --font-mono: var(--font-geist-mono);
@@ -88,7 +89,7 @@ h1, h2, h3, h4 {
 
 /* Hexagon motif from the van wrap's tech iconography */
 .hex-bg {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><path d='M28 2 54 17v30L28 62 2 47V17zM28 62v33M2 47 0 48M54 47l2 1' fill='none' stroke='%233fb4ff' stroke-opacity='0.16' stroke-width='1'/></svg>");
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><path d='M28 2 54 17v30L28 62 2 47V17zM28 62v33M2 47 0 48M54 47l2 1' fill='none' stroke='%23ffc72c' stroke-opacity='0.16' stroke-width='1'/></svg>");
   background-size: 56px 97px;
   -webkit-mask-image: linear-gradient(115deg, transparent 20%, #000 75%);
   mask-image: linear-gradient(115deg, transparent 20%, #000 75%);
