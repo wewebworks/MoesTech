@@ -8,10 +8,11 @@ import { ClosingSlide, DemoSlide, IntroSlide, LessonsSlide, ProblemSlide, WorkSl
 import { ExperienceSlide, JourneySlide } from "./SlidesPO";
 import { ArchitectureSlide, StackSlide } from "./SlidesTech";
 import { ApiSlide, OwnershipSlide } from "./SlidesApi";
+import { StridelySlide } from "./SlidesStridely";
 import type { SlideProps } from "./ui";
 
 const VIEWS: ((p: SlideProps) => ReactNode)[] = [
-  IntroSlide, ProblemSlide, ExperienceSlide, JourneySlide, StackSlide, ArchitectureSlide, OwnershipSlide, ApiSlide, DemoSlide, LessonsSlide, WorkSlide, ClosingSlide,
+  IntroSlide, ProblemSlide, ExperienceSlide, JourneySlide, StackSlide, ArchitectureSlide, OwnershipSlide, ApiSlide, DemoSlide, LessonsSlide, WorkSlide, ClosingSlide, StridelySlide,
 ];
 
 export function Deck() {

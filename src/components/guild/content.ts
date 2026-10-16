@@ -25,7 +25,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: "problem", title: "The Business Problem", seconds: 40,
+    id: "problem", title: "The Business Problem", seconds: 35,
     notes: [
       "Introduce MoeTech in one breath: a fictional company that maintains the technology inside buildings (cameras, door access, networks, AV) for property managers. The workflow and architecture are real; the data is fictional.",
       "Requests, dispatch, field work, billing.",
@@ -51,7 +51,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: "stack", title: "The Actual Tech Stack", seconds: 50,
+    id: "stack", title: "The Actual Tech Stack", seconds: 45,
     notes: [
       "Open with the status: about 90% complete and in beta with clients. That is the product; this deck demos it with sample data.",
       "Front-end versions were read from package.json in this repository. The backend layer and the Monday.com / QuickBooks setup are author-reported for the beta and are labeled that way.",
@@ -79,7 +79,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: "api", title: "API Walkthrough: Proposed Flow", seconds: 80,
+    id: "api", title: "API Walkthrough: Proposed Flow", seconds: 70,
     notes: [
       "Make clear before starting: this is an illustrative API flow with fictional data. The demo does not call Monday.com or QuickBooks.",
       "Step through with Next step (or the period key). Ten steps; spend longer on steps 3, 4, 7 and 10.",
@@ -89,7 +89,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: "demo", title: "Live Demo", seconds: 100,
+    id: "demo", title: "Live Demo", seconds: 90,
     notes: [
       "Press Launch Live Demo. It opens the existing, working portal simulation, with a Return to Presentation bar.",
       "1. Manager submits. 2. Dispatch assigns and schedules. 3. Technician starts and completes. 4. Manager reads the timeline and activity log.",
@@ -99,7 +99,7 @@ export const SLIDES: Slide[] = [
     ],
   },
   {
-    id: "lessons", title: "What Building Taught Me", seconds: 40,
+    id: "lessons", title: "What Building Taught Me", seconds: 30,
     notes: [
       "Centerpiece. Slow down.",
       "Left: what I brought. Right: what only building taught me.",
@@ -119,6 +119,16 @@ export const SLIDES: Slide[] = [
       "Deliver the closing line slowly, then the supporting sentence.",
       "Two actions: Explore MoeTech (live portal) or View Architecture (jumps back).",
       "Invite questions. Stop on time.",
+    ],
+  },
+  {
+    id: "stridely", title: "One More Build: Stridely", seconds: 40,
+    notes: [
+      "Use this as the proof point, or as the answer to a question about speed. Keep it to 40 seconds.",
+      "Stridely is a separate project: a social step-challenge iPhone app. Show the screenshots first, then the timeline.",
+      "Numbers come from the git history: 38 commits and 12 database migrations between the first and last commit, about 25 hours apart.",
+      "The point is the method, not the speed: write the audit and plan first, build in phases, let the server own the rules, test as you go.",
+      "Be ready for the question about dates: the commit history shows Oct 14 to 15. Say what you did over the weekend if there was earlier work.",
     ],
   },
 ];
@@ -393,3 +403,30 @@ export const POSSIBILITIES = [
 ];
 export const GUARDRAIL =
   "A prototype is not a product. Enterprise development still requires security reviews, governance, architecture standards, and engineering validation.";
+
+// ---- Stridely (separate project) ---------------------------------------------
+// Facts below come from that project's git history and docs/ARCHITECTURE.md (read-only).
+export const STRIDELY = {
+  name: "Stridely",
+  tagline: "A social step-challenge app for iPhone, with Apple Watch and widget targets.",
+  stats: [
+    { n: "38", label: "commits" },
+    { n: "12", label: "database migrations" },
+    { n: "~25 h", label: "first to last commit (Oct 14\u201315)" },
+  ],
+  stack: "Expo SDK 57 · React Native · TypeScript · Supabase (Postgres, RLS) · HealthKit",
+  // Add real screenshots to public/stridely/ and list the file names here.
+  screenshots: [] as { src: string; caption: string }[],
+  timeline: [
+    { when: "Wed 13:56", what: "First commit; foundation, auth, design system, schema" },
+    { when: "Wed 14:04\u201314:28", what: "HealthKit sync, Home dashboard, friends, privacy, leaderboards" },
+    { when: "Wed 16:18\u201317:08", what: "Challenges with server-side scoring, notifications, stats, chat, widget, Watch target" },
+    { when: "Wed 17:50\u201318:29", what: "Block and report, privacy policy, StrideCoins economy, insights engine with tests" },
+    { when: "Thu 07:59\u201314:40", what: "Audit and plan, new design system, HealthKit service, new visual identity, polish" },
+  ],
+  method: [
+    "I wrote the product decisions first: fair scoring, privacy, and the server as the authority.",
+    "Claude Code built each phase against those rules, with SQL and unit tests alongside.",
+    "An audit and plan document came before each major version.",
+  ],
+};

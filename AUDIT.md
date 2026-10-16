@@ -61,8 +61,8 @@ All steps are fully functional **as a client-side simulation** on sample data.
 ## 7. Presentation checks
 
 - `npm run lint`, `npx tsc --noEmit`, `npm run build`: clean.
-- 12 slides: arrow keys, `Home`/`End`, `1`–`9`, hash deep links. At 1280×720 each slide fits without scrolling. API walkthrough steps with `.` and `,`. Presenter view syncs with the deck over BroadcastChannel.
-- Time budget: 600 seconds across 12 slides (`SLIDES` in `src/components/guild/content.ts`).
+- 13 slides: arrow keys, `Home`/`End`, `1`–`9`, hash deep links. At 1280×720 each slide fits without scrolling. API walkthrough steps with `.` and `,`. Presenter view syncs with the deck over BroadcastChannel.
+- Time budget: 600 seconds across 13 slides (`SLIDES` in `src/components/guild/content.ts`).
 - Not tested: projector, Safari/Firefox, screen readers; there is no automated test suite.
 
 ## 8. Branding
