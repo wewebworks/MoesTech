@@ -128,7 +128,7 @@ export const SLIDES: Slide[] = [
       "Stridely is a separate project: a social step-challenge iPhone app. Show the three screens first, then the numbers. Use the Features tab to talk about the reward store, challenges, and Stridely Intelligence; use the Build tab for the timeline.",
       "Numbers come from the git history: 38 commits and 12 database migrations between the first and last commit, about 25 hours apart.",
       "The point is the method, not the speed: write the audit and plan first, build in phases, let the server own the rules, test as you go.",
-      "Be ready for the question about dates: the commit history shows Oct 14 to 15. Say what you did over the weekend if there was earlier work.",
+      "If asked about timing: the history shows about 25 hours from the first to the last commit. Say how much of that was active work.",
     ],
   },
 ];
@@ -412,7 +412,7 @@ export const STRIDELY = {
   stats: [
     { n: "38", label: "commits" },
     { n: "12", label: "database migrations" },
-    { n: "~25 h", label: "first to last commit (Oct 14\u201315)" },
+    { n: "~25 h", label: "first to last commit" },
   ],
   screenshots: [
     { src: "/stridely/home.jpg", alt: "Stridely home screen with daily goal ring, steps, flights, active time, streak, level and badges", caption: "Home" },
@@ -435,11 +435,11 @@ export const STRIDELY = {
   ],
   stack: "Expo SDK 57 · React Native · TypeScript · Supabase (Postgres, RLS) · HealthKit",
   timeline: [
-    { when: "Wed 13:56", what: "First commit; foundation, auth, design system, schema" },
-    { when: "Wed 14:04\u201314:28", what: "HealthKit sync, Home dashboard, friends, privacy, leaderboards" },
-    { when: "Wed 16:18\u201317:08", what: "Challenges with server-side scoring, notifications, stats, chat, widget, Watch target" },
-    { when: "Wed 17:50\u201318:29", what: "Block and report, privacy policy, StrideCoins economy, insights engine with tests" },
-    { when: "Thu 07:59\u201314:40", what: "Audit and plan, new design system, HealthKit service, new visual identity, polish" },
+    { when: "Hour 0", what: "First commit; foundation, auth, design system, schema" },
+    { when: "Hours 0-1", what: "HealthKit sync, Home dashboard, friends, privacy, leaderboards" },
+    { when: "Hours 2-3", what: "Challenges with server-side scoring, notifications, stats, chat, widget, Watch target" },
+    { when: "Hours 4-5", what: "Block and report, privacy policy, StrideCoins economy, insights engine with tests" },
+    { when: "Hours 18-25", what: "Audit and plan, new design system, HealthKit service, new visual identity, polish" },
   ],
   method: [
     "I wrote the product decisions first: fair scoring, privacy, and the server as the authority.",
