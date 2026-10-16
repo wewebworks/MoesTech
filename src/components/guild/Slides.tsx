@@ -74,7 +74,13 @@ export function ProblemSlide() {
   const steps = connected ? CONNECTED : FRAGMENTED;
   return (
     <Frame eyebrow="Section 2 · The business problem" title={<>A fictional field service company, and information that doesn&rsquo;t travel.</>}>
-      <p className="max-w-4xl text-lg leading-relaxed text-white/70 md:text-xl">Property managers send requests. Dispatch assigns technicians. Technicians do the work and document it. Billing follows. Each step lives somewhere different.</p>
+      <div className="grid gap-3 md:grid-cols-[1.2fr_1fr]">
+        <div className="rounded-lg border border-signal/40 bg-signal/10 p-4 md:p-5">
+          <p className="eyebrow text-signal">Meet MoeTech (fictional)</p>
+          <p className="mt-1 text-base leading-relaxed text-white md:text-lg">A company that installs and maintains the technology inside commercial and multifamily buildings: cameras, door access and intercoms, networking, and AV. Its customers are property managers.</p>
+        </div>
+        <p className="self-center text-base leading-relaxed text-white/70 md:text-lg">Property managers send requests. Dispatch assigns technicians. Technicians do the work and document it. Billing follows. Each step lives somewhere different.</p>
+      </div>
       <div className="mt-8 flex gap-2" role="group" aria-label="Choose view">
         {([[false, "Today: fragmented"], [true, "Goal: connected end to end"]] as const).map(([v, l]) => (
           <button key={l} onClick={() => setConnected(v)} aria-pressed={connected === v}

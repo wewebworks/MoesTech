@@ -27,7 +27,8 @@ export const SLIDES: Slide[] = [
   {
     id: "problem", title: "The Business Problem", seconds: 40,
     notes: [
-      "Fictional field service company. Requests, dispatch, field work, billing.",
+      "Introduce MoeTech in one breath: a fictional company that maintains the technology inside buildings (cameras, door access, networks, AV) for property managers. The workflow and architecture are real; the data is fictional.",
+      "Requests, dispatch, field work, billing.",
       "Toggle fragmented, then connected. Point at the photo step: job photos usually live in a separate app such as CompanyCam. Here they attach to the ticket, so there is nothing extra to reconcile.",
       "The goal is an end-to-end process, not another website.",
     ],
