@@ -6,7 +6,7 @@ Scope: what is in this repository, what is author-reported, and what the present
 
 ## 1. Project status (author-reported)
 
-About 90% complete and in beta testing with clients. The deck says so on the Tech Stack slide. This repository is the front end plus a sample-data simulation; it is not the full beta system.
+Live with test clients and about 90% complete. The deck says so on the Tech Stack slide. This repository is the front end plus a sample-data demo; it is not the full live system, so the deck labels live-system facts as author-reported.
 
 ## 2. Technologies actually used
 

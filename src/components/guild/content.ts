@@ -8,7 +8,7 @@
 export const BRAND = "MoeTech";
 export const DEMO_PATH = "/portal-preview#simulation";
 export const DEMO_FLAG = "ai-guild:from-deck";
-export const PROJECT_STATUS = "About 90% complete · in beta testing with clients (author-reported)";
+export const PROJECT_STATUS = "Live with test clients · about 90% complete (author-reported)";
 export const DISCLAIMER =
   "Independent personal project. Not affiliated with or endorsed by Sun Life. Fictional data only; no confidential information.";
 
@@ -44,7 +44,7 @@ export const SLIDES: Slide[] = [
   {
     id: "journey", title: "Building With Claude Code", seconds: 50,
     notes: [
-      "Start on the example view: a business rule goes in, Claude Code produces components, I review and test it in the running app.",
+      "Start on the example view: a business rule goes in, Claude Code helps build it, and I validate it with test clients on the live product. Use a real example from your own build here.",
       "Then the two-column split. Land the sentence: AI accelerates development; it does not replace engineering judgment.",
       "Be honest about the failure mode: generated code can look right and be wrong. Testing and review are mine.",
       "Optional: click the stage-by-stage tab if you have a spare ten seconds.",
@@ -164,14 +164,14 @@ export const JOURNEY = [
   { stage: "Architecture", human: ["Decides data ownership", "Reviews technical tradeoffs"], ai: ["Proposes options and tradeoffs to evaluate"] },
   { stage: "AI-Assisted Coding", human: ["Directs with clear requirements", "Reviews every change"], ai: ["Scaffolds components", "Generates implementation code", "Accelerates UI iteration"] },
   { stage: "Testing", human: ["Validates expected behavior", "Decides what is good enough"], ai: ["Assists with debugging", "Suggests tests"] },
-  { stage: "Working Prototype", human: ["Demonstrates to stakeholders", "Captures what it exposed"], ai: ["Helps polish and document"] },
+  { stage: "Live with Test Clients", human: ["Validates with real users", "Turns feedback into the next requirements"], ai: ["Helps fix issues and iterate quickly"] },
 ];
 export const MINE = ["Business understanding", "Requirements and acceptance criteria", "Architecture decisions", "Workflow design", "Prioritization", "Validation: does it behave as specified?"];
 export const CLAUDE = ["Code generation", "Component development", "Debugging assistance", "Testing support", "Faster iteration on UI"];
 export const REQ_EXAMPLE = {
-  requirement: "A technician sees only the tickets assigned to them, and can start or complete only those.",
-  produced: "Claude Code generated the role views and action panels in the simulator components.",
-  review: "I reviewed the behavior in the running app against the acceptance criteria before keeping the change.",
+  requirement: "Technicians see only their assigned tickets and can only make valid status changes. Every change must land on the Monday.com record, the source of truth.",
+  produced: "Claude Code helped build the role-based interfaces and the API layer that validates requests and syncs with Monday.com.",
+  review: "I validated the behavior against the acceptance criteria, and with test clients on the live product, before keeping each change.",
 };
 
 // ---- Tech stack -------------------------------------------------------------
