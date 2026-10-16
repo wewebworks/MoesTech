@@ -125,7 +125,7 @@ export const SLIDES: Slide[] = [
     id: "stridely", title: "One More Build: Stridely", seconds: 40,
     notes: [
       "Use this as the proof point, or as the answer to a question about speed. Keep it to 40 seconds.",
-      "Stridely is a separate project: a social step-challenge iPhone app. Show the three screens first, then the numbers and timeline.",
+      "Stridely is a separate project: a social step-challenge iPhone app. Show the three screens first, then the numbers. Use the Features tab to talk about the reward store, challenges, and Stridely Intelligence; use the Build tab for the timeline.",
       "Numbers come from the git history: 38 commits and 12 database migrations between the first and last commit, about 25 hours apart.",
       "The point is the method, not the speed: write the audit and plan first, build in phases, let the server own the rules, test as you go.",
       "Be ready for the question about dates: the commit history shows Oct 14 to 15. Say what you did over the weekend if there was earlier work.",
@@ -418,6 +418,20 @@ export const STRIDELY = {
     { src: "/stridely/home.jpg", alt: "Stridely home screen with daily goal ring, steps, flights, active time, streak, level and badges", caption: "Home" },
     { src: "/stridely/insights.jpg", alt: "Stridely home screen with activity rings, Stridely Intelligence insight and weekly goal tracker", caption: "Insights and week" },
     { src: "/stridely/leaderboard.jpg", alt: "Stridely leaderboard with practice bots and ranking", caption: "Leaderboard" },
+  ],
+  features: [
+    { name: "Reward store", tag: "StrideCoins", headline: "Walk, earn, customize.", points: [
+      "Earn coins for daily goals, streaks, records, and challenge wins. Spend them on 17 cosmetics: frames, titles, themes, ring designs, victory effects.",
+      "Virtual points only: no cash value, no purchases. The server owns the ledger, so the app cannot edit it.",
+    ] },
+    { name: "Challenges", tag: "Total Steps or FairPlay", headline: "Fair for casual walkers, too.", points: [
+      "Challenge friends for 1 to 60 days with live standings, cheers, and chat.",
+      "FairPlay scores improvement over your own 14-day baseline, calculated only in the database.",
+    ] },
+    { name: "Stridely Intelligence", tag: "No AI at runtime", headline: "Insight only when it is worth saying.", points: [
+      "Plain-language insights, a goal forecast, and catch-up steps in challenges.",
+      "Plain TypeScript on your own 90-day history: private, no new service, no extra cost.",
+    ] },
   ],
   stack: "Expo SDK 57 · React Native · TypeScript · Supabase (Postgres, RLS) · HealthKit",
   timeline: [
