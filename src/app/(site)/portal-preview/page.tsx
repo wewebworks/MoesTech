@@ -41,7 +41,7 @@ export default function PortalPreviewPage() {
           <div className="mt-16 rounded-md border border-line bg-mist p-7 sm:p-9">
             <h2 className="text-xl font-semibold text-navy-900">Built to connect later</h2>
             <p className="mt-3 max-w-3xl text-slate-ink">
-              In the beta, Monday.com is the source of truth for tickets and is integrated with QuickBooks for billing. This demonstration simulates that behavior with in-browser sample data and does not call either system.
+              In the beta, Monday.com is the source of truth for tickets, and QuickBooks reads from and writes to it for billing. This demonstration simulates that behavior with in-browser sample data and does not call either system.
             </p>
           </div>
         </div>

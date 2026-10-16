@@ -28,7 +28,8 @@ export const SLIDES: Slide[] = [
     id: "problem", title: "The Business Problem", seconds: 40,
     notes: [
       "Fictional field service company. Requests, dispatch, field work, billing.",
-      "Toggle fragmented, then connected. The goal is an end-to-end process, not another website.",
+      "Toggle fragmented, then connected. Point at the photo step: job photos usually live in a separate app such as CompanyCam. Here they attach to the ticket, so there is nothing extra to reconcile.",
+      "The goal is an end-to-end process, not another website.",
     ],
   },
   {
@@ -53,15 +54,15 @@ export const SLIDES: Slide[] = [
     notes: [
       "Open with the status: about 90% complete and in beta with clients. That is the product; this deck demos it with sample data.",
       "Front-end versions were read from package.json in this repository. The backend layer and the Monday.com / QuickBooks setup are author-reported for the beta and are labeled that way.",
-      "Click Monday.com: it is the source of truth and is integrated with QuickBooks. Click Authentication and Database to show what is not claimed.",
+      "Click Monday.com: it is the source of truth, and QuickBooks reads from and writes to it. Click Authentication and Database to show what is not claimed.",
       "The honesty is the point: say what you built, what you are reporting, and what the demo simulates.",
     ],
   },
   {
     id: "architecture", title: "System Architecture and Data Flow", seconds: 60,
     notes: [
-      "Left: the three interfaces. Middle: the backend / API layer. Right: Monday.com, the source of truth, which is integrated with QuickBooks.",
-      "Point at the animated lines: requests flow out, webhooks flow back from Monday.com, and Monday.com hands billable work to QuickBooks.",
+      "Left: the three interfaces. Middle: the backend / API layer. Right: Monday.com, the source of truth, which QuickBooks reads from and writes to.",
+      "Point at the animated lines: requests flow out, webhooks flow back from Monday.com, and QuickBooks reads from and writes to Monday.com in both directions.",
       "Read the labels: Monday.com is the operational source of truth; QuickBooks is the financial system of record.",
       "In this demo the Monday.com and QuickBooks connections are simulated and carry that label. The live demo does not call either system.",
       "You can launch the working ticket lifecycle from this slide.",
@@ -131,13 +132,13 @@ export const FRAGMENTED = [
   { label: "Inbox & phone", note: "Details live in threads" },
   { label: "Spreadsheet", note: "Someone re-types it" },
   { label: "Dispatch board", note: "Assigned by hand" },
-  { label: "Field notes", note: "Photos and notes in texts" },
+  { label: "Photo app & notes", note: "Job photos in a separate app (e.g., CompanyCam), notes in texts" },
   { label: "Billing", note: "Rebuilt from memory" },
 ];
 export const CONNECTED = [
   { label: "Request", note: "One record, structured" },
   { label: "Assign & schedule", note: "Dispatch acts on the record" },
-  { label: "Work & document", note: "Technician updates the same record" },
+  { label: "Work & document", note: "Notes and photos attach to the same record" },
   { label: "Review & bill", note: "Timeline feeds billing" },
 ];
 
@@ -146,8 +147,8 @@ export const SKILLS = [
   { id: "req", skill: "Requirements gathering", decision: "Three roles defined before any screen", detail: "I wrote down what a property manager, a dispatcher, and a technician each need to see and do before designing screens. That is why the app has three role views instead of one generic dashboard.", where: "Role switcher in the portal simulation" },
   { id: "story", skill: "User story development", decision: "Stories written per role", detail: "“As a technician, I only see tickets assigned to me.” “As dispatch, I can assign and schedule.” Stories like these became the permission rules in the role views.", where: "Technician view shows only that technician's tickets" },
   { id: "ac", skill: "Acceptance criteria", decision: "Observable behavior I can check", detail: "Given a ticket is Scheduled, when the technician starts work, then the status becomes In Progress and the activity log records who and when. Criteria this specific are also the best prompts for AI.", where: "Status stepper and activity log" },
-  { id: "api", skill: "API and integration literacy", decision: "Contracts before vendors", detail: "Monday.com is a GraphQL API with webhooks; QuickBooks is a REST API with its own object model. I designed what each system receives and returns before deciding anything about code. Monday.com is the source of truth and is integrated with QuickBooks; the demo simulates both.", where: "API walkthrough slide (proposed flow)" },
-  { id: "e2e", skill: "End-to-end process mapping", decision: "One path from request to invoice", detail: "I mapped request, dispatch, field work, review, and billing as one path, and built the guided walkthrough to follow exactly that path.", where: "Guided walkthrough in the demo" },
+  { id: "api", skill: "API and integration literacy", decision: "Contracts before vendors", detail: "Monday.com is a GraphQL API with webhooks; QuickBooks is a REST API with its own object model. I designed what each system receives and returns before deciding anything about code. Monday.com is the source of truth and QuickBooks reads from and writes to it; the demo simulates both.", where: "API walkthrough slide (proposed flow)" },
+  { id: "e2e", skill: "End-to-end process mapping", decision: "One path from request to invoice", detail: "I mapped request, dispatch, field work, review, and billing as one path, and built the guided walkthrough to follow exactly that path. Job photos attach to the ticket instead of living in a separate photo app.", where: "Guided walkthrough in the demo" },
   { id: "dep", skill: "System dependencies", decision: "One integration layer, no vendor calls from the UI", detail: "The interfaces depend on the integration layer, never on Monday.com or QuickBooks directly. Swapping a vendor then changes one layer, not three screens.", where: "Architecture slide" },
   { id: "sot", skill: "Source-of-truth decisions", decision: "Monday.com for operations, QuickBooks for money", detail: "One system owns each kind of record. Interfaces display and request; they do not keep competing copies of a ticket.", where: "Ownership slide" },
   { id: "prio", skill: "Prioritization", decision: "Build the loop first, then integrate", detail: "The request-to-completion loop came first because that is where the workflow questions are. Integrations followed. The demo runs on sample data and says so, rather than faking live integrations.", where: "Implemented / Simulated / Planned labels" },
@@ -197,11 +198,12 @@ export const STACK: StackGroup[] = [
     { id: "lint", name: "ESLint 9 + TypeScript checks", status: "Implemented", role: "Quality gates", evidence: "package.json: eslint ^9, eslint-config-next", detail: "Lint, type-check, and production build run clean. There is no automated test suite yet." },
   ]},
   { id: "int", label: "Integrations", items: [
-    { id: "monday", name: "Monday.com", status: "Simulated", role: "Operational source of truth", evidence: "Author-reported for the beta. No Monday.com calls in this repository", detail: "Source of truth for tickets, assignment, schedule, and status. Integrated with QuickBooks. The live demo simulates it." },
-    { id: "qb", name: "QuickBooks", status: "Simulated", role: "Financial system of record", evidence: "Author-reported: integrated with Monday.com. No QuickBooks calls in this repository", detail: "Owns invoices and payments. Monday.com is integrated with QuickBooks, so billing does not run through the UI. The live demo simulates it." },
+    { id: "monday", name: "Monday.com", status: "Simulated", role: "Operational source of truth", evidence: "Author-reported for the beta. No Monday.com calls in this repository", detail: "Source of truth for tickets, assignment, schedule, and status. QuickBooks reads from and writes to it. The live demo simulates it." },
+    { id: "qb", name: "QuickBooks", status: "Simulated", role: "Financial system of record", evidence: "Author-reported: reads and writes Monday.com. No QuickBooks calls in this repository", detail: "Owns invoices and payments. QuickBooks reads from and writes to Monday.com, so billing does not run through the UI. The live demo simulates it." },
     { id: "notify", name: "Notifications", status: "Simulated", role: "Text or email updates", evidence: "Portal shows a simulated notifications panel", detail: "The panel shows what a manager might receive. Nothing is sent." },
   ]},
-  { id: "ai", label: "AI-assisted development", items: [
+  { id: "ai", label: "AI-assisted dev and native features", items: [
+    { id: "photo", name: "Native photo documentation", status: "Implemented", role: "Replaces a separate photo app (e.g., CompanyCam)", evidence: "Repo: photo attach on requests, shown on the ticket. Technician-side capture: author-reported (beta)", detail: "Photos belong to the work order instead of a second system, so there is no extra app to license, train on, or reconcile. The public demo shows a sample photo attached to a request." },
     { id: "claude", name: "Claude Code", status: "Implemented", role: "Requirements to implementation", evidence: "Used to build and iterate on this codebase (per the author)", detail: "No AI is called at runtime. There are no AI APIs in the application; AI was a development tool only." },
   ]},
 ];
@@ -209,12 +211,12 @@ export const STACK: StackGroup[] = [
 // ---- Architecture diagram ---------------------------------------------------
 export type ArchNode = { id: string; name: string; status: Status3; owns: string; responsibility: string; today: string };
 export const ARCH: ArchNode[] = [
-  { id: "pm", name: "Property Manager interface", status: "Implemented", owns: "Nothing. Displays and requests.", responsibility: "Submit a request, follow progress, read the timeline.", today: "Works in the browser with sample data." },
+  { id: "pm", name: "Property Manager interface", status: "Implemented", owns: "Nothing. Displays and requests.", responsibility: "Submit a request with a photo, follow progress, read the timeline.", today: "Works in the browser with sample data, including a sample photo on the request." },
   { id: "dispatch", name: "Dispatch interface", status: "Implemented", owns: "Nothing. Acts through the rules.", responsibility: "Review, assign a technician, schedule visits, order materials.", today: "Works in the browser with sample data." },
-  { id: "tech", name: "Technician interface", status: "Implemented", owns: "Nothing. Acts through the rules.", responsibility: "See assigned work, start it, document, complete.", today: "Works in the browser; sees only their own tickets." },
+  { id: "tech", name: "Technician interface", status: "Implemented", owns: "Nothing. Acts through the rules.", responsibility: "See assigned work, start it, document it with notes and photos, complete.", today: "Works in the browser; sees only their own tickets. Photos attach to the ticket, so no separate photo app (technician capture is author-reported for the beta)." },
   { id: "layer", name: "Backend / API integration layer", status: "Implemented", owns: "Validation, permissions, sync rules", responsibility: "Receives requests, validates payloads, enforces roles, writes to Monday.com, and receives its webhooks.", today: "Exists in the beta (author-reported). In this public demo the browser app plays this role against sample data." },
-  { id: "monday", name: "Monday.com", status: "Simulated", owns: "Tickets, assignment, schedule, status, technician notes", responsibility: "Operational source of truth: the one record of each work order. Integrated with QuickBooks.", today: "Source of truth in the beta (author-reported). The live demo simulates it." },
-  { id: "qb", name: "QuickBooks", status: "Simulated", owns: "Invoices and payments", responsibility: "Financial system of record. Monday.com is integrated with QuickBooks, so completed work reaches accounting from the source of truth.", today: "Integrated with Monday.com in the beta (author-reported). The live demo simulates it." },
+  { id: "monday", name: "Monday.com", status: "Simulated", owns: "Tickets, assignment, schedule, status, technician notes", responsibility: "Operational source of truth: the one record of each work order. QuickBooks reads from and writes to it.", today: "Source of truth in the beta (author-reported). The live demo simulates it." },
+  { id: "qb", name: "QuickBooks", status: "Simulated", owns: "Invoices and payments", responsibility: "Financial system of record. It reads completed work from Monday.com and writes invoice and payment status back to it.", today: "Integrated with Monday.com in the beta (author-reported). The live demo simulates it." },
 ];
 
 // ---- Ownership --------------------------------------------------------------
@@ -222,6 +224,7 @@ export const OWNERSHIP_ROWS = [
   { record: "Ticket / work order", owner: "Monday.com", why: "One operational record" },
   { record: "Assignment and schedule", owner: "Monday.com", why: "Dispatch writes once" },
   { record: "Technician notes and completion", owner: "Monday.com", why: "Same record as the ticket" },
+  { record: "Job photos and documentation", owner: "Monday.com", why: "Attached to the work order, no separate photo app" },
   { record: "Invoice and payment", owner: "QuickBooks", why: "Accounting stays accounting" },
   { record: "Validation and permissions", owner: "Integration layer", why: "Enforced in one place" },
   { record: "Screens and view state", owner: "MoeTech interfaces", why: "Specialized experiences" },
@@ -322,13 +325,14 @@ Idempotency-Key: 7f3c-sample-0003
 
 {
   "status": "Completed",
-  "notes": "Replaced camera power supply."
+  "notes": "Replaced camera power supply.",
+  "photos": ["img_sample_0001"]
 }`,
     response: `{
   "status": "Completed",
   "auditEntry": "Technician \\u00b7 completed \\u00b7 2026-03-12T10:41Z"
 }`,
-    note: "The layer checks that this status change is a valid transition for this role." },
+    note: "The layer checks that this status change is a valid transition for this role. Photos attach to the same record, so no separate photo app is needed." },
   { title: "Monday.com reflects the operational updates", arrows: [["monday", "api"], ["api", "ui"]], label: "webhook: update_column_value",
     request: `// webhook delivered to the integration layer (illustrative)
 {
@@ -341,9 +345,9 @@ Idempotency-Key: 7f3c-sample-0003
 }`,
     response: `HTTP 200   // acknowledge quickly, process safely`,
     note: "Changes made directly in Monday.com flow back. This is why a webhook beats polling." },
-  { title: "QuickBooks handles the financial transaction", arrows: [["monday", "qb"]], label: "Monday.com \u2192 QuickBooks (when billable)",
-    request: `// Monday.com's QuickBooks integration, triggered by the
-// completed item (illustrative; configured in Monday.com)
+  { title: "QuickBooks handles the financial transaction", arrows: [["monday", "qb"], ["qb", "monday"]], label: "QuickBooks reads and writes Monday.com",
+    request: `// QuickBooks reads the completed Monday.com item and creates
+// an invoice (illustrative; configured in the integration)
 POST /v3/company/{realmId}/invoice
 
 {
@@ -355,8 +359,11 @@ POST /v3/company/{realmId}/invoice
   }],
   "PrivateNote": "Ticket T-1045 / Monday item 5550001001"
 }`,
-    response: `{ "Invoice": { "Id": "9001", "DocNumber": "1045", "TotalAmt": 180.00 } }`,
-    note: "Only when billing applies. Monday.com is integrated with QuickBooks, so no custom billing code is needed. QuickBooks owns the invoice; the ticket carries a reference, not a copy." },
+    response: `{ "Invoice": { "Id": "9001", "DocNumber": "1045", "TotalAmt": 180.00 } }
+
+// then QuickBooks writes back to the Monday.com item
+{ "invoiceNumber": "1045", "paymentStatus": "Unpaid" }`,
+    note: "Only when billing applies. QuickBooks reads from and writes to Monday.com, so no custom billing code is needed. QuickBooks owns the invoice; the ticket carries a reference and payment status, not a copy." },
 ];
 
 // ---- Demo / lessons / work ---------------------------------------------------

@@ -105,7 +105,8 @@ const FLOWS = [
   { d: "M260,331 C320,331 320,260 370,260", c: "#ffc72c" },
   { d: "M570,185 C640,185 640,92 700,92", c: "#ffc72c", label: "write", lx: 596, ly: 120 },
   { d: "M700,150 C640,150 640,215 570,215", c: "#5cc2ff", label: "webhook", lx: 592, ly: 240 },
-  { d: "M815,194 L815,290", c: "#ffc72c", label: "native integration", lx: 826, ly: 246 },
+  { d: "M800,194 L800,290", c: "#ffc72c" },
+  { d: "M830,290 L830,194", c: "#5cc2ff", label: "reads & writes", lx: 842, ly: 246 },
 ];
 
 export function ArchitectureSlide({ launchDemo }: SlideProps) {

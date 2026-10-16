@@ -21,7 +21,8 @@ About 90% complete and in beta testing with clients. The deck says so on the Tec
 | Hosting | Vercel, live at `moes-tech.vercel.app` | repository-verified (`vercel.json`, HTTP 200) |
 | Backend / API layer | Validates, enforces roles, syncs with Monday.com | **author-reported**; no route handlers in this repository |
 | Source of truth | Monday.com | **author-reported** |
-| Billing | QuickBooks, integrated with Monday.com | **author-reported** |
+| Photo documentation | Native: photos attach to the ticket, replacing a separate photo app such as CompanyCam | repository-verified for photo attach on requests; technician-side capture **author-reported** |
+| Billing | QuickBooks reads from and writes to Monday.com | **author-reported** |
 | AI-assisted development | Claude Code | **author-reported** |
 
 Not present in this repository: component library, route handlers or server actions, database or ORM, authentication library, SDKs or API calls for Monday.com or QuickBooks, environment variables, automated tests, any runtime AI call.
@@ -36,7 +37,7 @@ Not present in this repository: component library, route handlers or server acti
 - Roles: a UI switcher that limits visible actions. Not authentication or authorization.
 - Monday.com and QuickBooks in the architecture diagram: labeled "Simulated Integration".
 - Notifications: a simulated panel. Nothing is sent.
-- The API walkthrough: "Proposed API Flow", illustrative, fictional data. Request/response shapes follow the general style of the vendors' public APIs and were **not** executed or validated against them. The final step shows Monday.com's QuickBooks integration, so no custom billing call is made from MoeTech.
+- The API walkthrough: "Proposed API Flow", illustrative, fictional data. Request/response shapes follow the general style of the vendors' public APIs and were **not** executed or validated against them. The final step shows QuickBooks reading from and writing back to Monday.com, so no custom billing call is made from MoeTech.
 
 ## 5. Not claimed
 

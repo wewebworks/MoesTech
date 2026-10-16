@@ -47,7 +47,7 @@ export function OwnershipSlide() {
               ))}
             </tbody>
           </table>
-          <p className="mt-2 text-xs text-white/50">Monday.com for operations (source of truth), integrated with QuickBooks for finance. The demo simulates both.</p>
+          <p className="mt-2 text-xs text-white/50">Monday.com for operations (source of truth); QuickBooks reads from and writes to it for finance. The demo simulates both.</p>
         </div>
       </div>
       <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label="Integration concerns">
