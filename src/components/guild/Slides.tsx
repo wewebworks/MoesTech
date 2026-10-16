@@ -1,36 +1,12 @@
 "use client";
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState } from "react";
 import { useReducedMotion } from "motion/react";
-import { ArrowRight, Check, Cpu, ExternalLink, Play, ShieldCheck, User } from "lucide-react";
+import { ArrowRight, Check, ExternalLink, Play, ShieldCheck } from "lucide-react";
 import { STATUSES } from "@/components/portal/portalData";
 import {
-  ARCH, BRAND, BROUGHT, CONCERNS, CONNECTED, DEMO_STEPS, DISCLAIMER, FRAGMENTED, GUARDRAIL, JOURNEY, LEARNED,
-  POSSIBILITIES, SKILLS, type Status3,
+  BRAND, BROUGHT, CONNECTED, DEMO_STEPS, DISCLAIMER, FRAGMENTED, GUARDRAIL, LEARNED, POSSIBILITIES, slideIndex,
 } from "./content";
-
-export type SlideProps = { go: (i: number) => void; launchDemo: () => void; active: boolean };
-
-const tagStyle: Record<Status3, string> = {
-  Implemented: "bg-emerald-400/15 text-emerald-300 ring-emerald-300/30",
-  Simulated: "bg-signal/15 text-signal ring-signal/30",
-  Planned: "bg-amber-400/15 text-amber-300 ring-amber-300/30",
-};
-export function Tag({ kind }: { kind: Status3 }) {
-  return <span className={`eyebrow inline-block rounded-md px-2.5 py-1 ring-1 ${tagStyle[kind]}`}>{kind}</span>;
-}
-
-function Frame({ eyebrow, title, children, wide }: { eyebrow: string; title: ReactNode; children: ReactNode; wide?: boolean }) {
-  return (
-    <div className={`mx-auto flex min-h-full w-full flex-col justify-center px-6 py-10 md:px-14 ${wide ? "max-w-[96rem]" : "max-w-[88rem]"}`}>
-      <p className="eyebrow mb-4 flex items-center gap-3 text-signal"><span className="h-0.5 w-8 bg-signal" aria-hidden="true" />{eyebrow}</p>
-      <h2 className="max-w-5xl text-3xl font-semibold leading-[1.05] text-white md:text-5xl xl:text-6xl">{title}</h2>
-      <div className="mt-8 md:mt-10">{children}</div>
-    </div>
-  );
-}
-
-const btnPrimary = "inline-flex items-center justify-center gap-2 rounded-md bg-signal px-7 py-4 text-base font-semibold text-navy-950 transition-colors hover:bg-white md:text-lg";
-const btnGhost = "inline-flex items-center justify-center gap-2 rounded-md border border-white/30 px-7 py-4 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/10 md:text-lg";
+import { Frame, Tag, btnGhost, btnPrimary, type SlideProps } from "./ui";
 
 // ---------------------------------------------------------------- 1 Intro
 function ProductPreview({ active }: { active: boolean }) {
@@ -125,133 +101,10 @@ export function ProblemSlide() {
   );
 }
 
-// ---------------------------------------------------------------- 3 Experience
-export function ExperienceSlide() {
-  const [sel, setSel] = useState(0);
-  const s = SKILLS[sel];
-  return (
-    <Frame eyebrow="Section 3 · Product Owner experience" title="What My Experience at Sun Life Taught Me" wide>
-      <div className="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
-        <ul className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-1" aria-label="Six transferable skills">
-          {SKILLS.map((k, i) => (
-            <li key={k.id}>
-              <button onClick={() => setSel(i)} aria-pressed={sel === i}
-                className={`flex w-full items-center gap-4 rounded-md border px-4 py-3.5 text-left transition-colors ${sel === i ? "border-signal bg-signal/10" : "border-white/15 bg-white/5 hover:bg-white/10"}`}>
-                <span className={`grid size-8 shrink-0 place-items-center rounded-full text-sm font-bold ${sel === i ? "bg-signal text-navy-950" : "bg-white/10 text-white/70"}`}>{i + 1}</span>
-                <span className="text-base font-semibold text-white md:text-lg">{k.skill}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-        <div className="rounded-lg border border-white/15 bg-white/5 p-6 md:p-9" aria-live="polite">
-          <p className="eyebrow text-signal">Skill</p>
-          <p className="mt-1 font-display text-2xl font-semibold text-white md:text-3xl">{s.skill}</p>
-          <p className="eyebrow mt-7 text-signal">Became this MoeTech design decision</p>
-          <p className="mt-1 font-display text-2xl font-semibold text-white md:text-3xl">{s.decision}</p>
-          <p className="mt-5 text-lg leading-relaxed text-white/75 md:text-xl">{s.detail}</p>
-          <p className="mt-6 text-sm text-white/55 md:text-base"><span className="eyebrow text-white/70">See it: </span>{s.where}</p>
-        </div>
-      </div>
-      <p className="mt-5 text-sm text-white/45">These are transferable skills. {BRAND} is not affiliated with or endorsed by Sun Life.</p>
-    </Frame>
-  );
-}
-
-// ---------------------------------------------------------------- 4 Journey
-export function JourneySlide() {
-  const [sel, setSel] = useState(4);
-  const j = JOURNEY[sel];
-  return (
-    <Frame eyebrow="Section 4 · From idea to application" title="Humans decide. AI accelerates." wide>
-      <ol className="grid gap-2 md:grid-cols-7" aria-label="Development journey">
-        {JOURNEY.map((x, i) => (
-          <li key={x.stage}>
-            <button onClick={() => setSel(i)} aria-pressed={sel === i} aria-label={`${i + 1}. ${x.stage}`}
-              className={`flex h-full w-full flex-row items-center gap-3 rounded-md border px-3 py-3 text-left transition-colors md:min-h-28 md:flex-col md:items-start md:justify-between ${sel === i ? "border-signal bg-signal text-navy-950" : "border-white/15 bg-white/5 text-white hover:bg-white/10"}`}>
-              <span className="eyebrow opacity-70">{i + 1}</span>
-              <span className="font-display text-base font-semibold leading-tight md:text-lg">{x.stage}</span>
-            </button>
-          </li>
-        ))}
-      </ol>
-      <div className="mt-6 grid gap-4 md:grid-cols-2" aria-live="polite">
-        <div className="rounded-lg border border-white/15 bg-white/5 p-6">
-          <p className="eyebrow flex items-center gap-2 text-signal"><User className="size-4" aria-hidden="true" /> Human role · {j.stage}</p>
-          <ul className="mt-4 space-y-2 text-lg text-white md:text-xl">{j.human.map((h) => <li key={h} className="flex gap-3"><Check className="mt-1.5 size-4 shrink-0 text-signal" aria-hidden="true" />{h}</li>)}</ul>
-        </div>
-        <div className="rounded-lg border border-white/15 bg-white/5 p-6">
-          <p className="eyebrow flex items-center gap-2 text-amber-300"><Cpu className="size-4" aria-hidden="true" /> AI role · {j.stage}</p>
-          <ul className="mt-4 space-y-2 text-lg text-white md:text-xl">{j.ai.map((h) => <li key={h} className="flex gap-3"><Check className="mt-1.5 size-4 shrink-0 text-amber-300" aria-hidden="true" />{h}</li>)}</ul>
-        </div>
-      </div>
-      <p className="mt-5 flex items-start gap-3 rounded-md border border-amber-300/30 bg-amber-300/10 px-5 py-4 text-base text-amber-100 md:text-lg">
-        <ShieldCheck className="mt-0.5 size-5 shrink-0" aria-hidden="true" />
-        AI-generated code is a draft, not an answer. Every change was read, run, and tested by a person before it counted.
-      </p>
-    </Frame>
-  );
-}
-
-// ---------------------------------------------------------------- 5 Architecture
-export function ArchitectureSlide() {
-  const [sel, setSel] = useState("state");
-  const [concern, setConcern] = useState<number | null>(null);
-  const node = ARCH.find((n) => n.id === sel)!;
-  const core = ARCH.filter((n) => n.group === "core");
-  const ext = ARCH.filter((n) => n.group === "external");
-  const btn = (n: (typeof ARCH)[number]) => (
-    <button key={n.id} onClick={() => { setSel(n.id); setConcern(null); }} aria-pressed={sel === n.id}
-      className={`flex w-full items-center justify-between gap-3 rounded-md border px-4 py-3 text-left transition-colors ${sel === n.id ? "border-signal bg-signal/15" : n.status === "Planned" ? "border-dashed border-white/25 bg-white/5 hover:bg-white/10" : "border-white/20 bg-white/5 hover:bg-white/10"}`}>
-      <span className="text-base font-semibold text-white md:text-lg">{n.name}</span><Tag kind={n.status} />
-    </button>
-  );
-  return (
-    <Frame eyebrow="Section 5 · Architecture and APIs" title="Decide who owns what before you write code." wide>
-      <div className="grid gap-5 lg:grid-cols-[1fr_1fr_1.1fr]">
-        <div>
-          <p className="eyebrow mb-3 text-white/60">Workflow</p>
-          <div className="flex flex-col items-stretch">
-            {core.map((n, i) => (<div key={n.id}>{btn(n)}{i < core.length - 1 && <div aria-hidden="true" className="mx-auto h-5 w-px bg-signal/60" />}</div>))}
-          </div>
-        </div>
-        <div>
-          <p className="eyebrow mb-3 text-white/60">Proposed integrations · not built</p>
-          <div className="flex flex-col gap-3">{ext.map(btn)}</div>
-          <p className="mt-3 text-xs text-white/45">Dashed = planned. Solid = exists in the prototype.</p>
-        </div>
-        <div className="rounded-lg border border-white/15 bg-white/5 p-6" aria-live="polite">
-          {concern === null ? (
-            <>
-              <div className="flex flex-wrap items-center gap-3"><p className="font-display text-2xl font-semibold text-white">{node.name}</p><Tag kind={node.status} /></div>
-              <p className="mt-4 text-lg leading-relaxed text-white/80">{node.responsibility}</p>
-              <dl className="mt-5 grid gap-3 text-base">
-                <div><dt className="eyebrow text-signal">Owns</dt><dd className="text-white/85">{node.owns}</dd></div>
-                <div><dt className="eyebrow text-signal">Connects to</dt><dd className="text-white/85">{node.talksTo}</dd></div>
-              </dl>
-            </>
-          ) : (
-            <>
-              <p className="eyebrow text-signal">Why it matters</p>
-              <p className="mt-1 font-display text-2xl font-semibold text-white">{CONCERNS[concern].name}</p>
-              <p className="mt-4 text-lg leading-relaxed text-white/80">{CONCERNS[concern].text}</p>
-            </>
-          )}
-        </div>
-      </div>
-      <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label="Integration concerns">
-        {CONCERNS.map((c, i) => (
-          <button key={c.name} onClick={() => setConcern(concern === i ? null : i)} aria-pressed={concern === i}
-            className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors md:text-base ${concern === i ? "bg-signal text-navy-950" : "border border-white/25 text-white hover:bg-white/10"}`}>{c.name}</button>
-        ))}
-      </div>
-    </Frame>
-  );
-}
-
 // ---------------------------------------------------------------- 6 Demo
 export function DemoSlide({ launchDemo }: SlideProps) {
   return (
-    <Frame eyebrow="Section 6 · Live demo" title={<>Now let&rsquo;s see it work.</>}>
+    <Frame eyebrow="Section 9 · Live demo" title={<>Now let&rsquo;s see it work.</>}>
       <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <ol className="space-y-3">
           {DEMO_STEPS.map((s, i) => (
@@ -281,7 +134,7 @@ export function DemoSlide({ launchDemo }: SlideProps) {
 export function LessonsSlide() {
   return (
     <div className="mx-auto flex min-h-full w-full max-w-[96rem] flex-col justify-center px-6 py-10 md:px-14">
-      <p className="eyebrow mb-4 flex items-center gap-3 text-signal"><span className="h-0.5 w-8 bg-signal" aria-hidden="true" />Section 7 · What building taught me</p>
+      <p className="eyebrow mb-4 flex items-center gap-3 text-signal"><span className="h-0.5 w-8 bg-signal" aria-hidden="true" />Section 10 · What building taught me</p>
       <h2 className="max-w-5xl text-4xl font-semibold leading-[1.05] text-white md:text-5xl xl:text-6xl">Skills got me started. <span className="text-signal">Building taught me the rest.</span></h2>
       <div className="mt-8 grid gap-5 md:grid-cols-2">
         <div className="rounded-lg border border-white/15 bg-white/5 p-7 md:p-9">
@@ -300,7 +153,7 @@ export function LessonsSlide() {
 // ---------------------------------------------------------------- 8 Work
 export function WorkSlide() {
   return (
-    <Frame eyebrow="Section 8 · Bringing it back to work" title="What Could This Change About Product Delivery?">
+    <Frame eyebrow="Section 11 · Bringing it back to work" title="What Could This Change About Product Delivery?">
       <ul className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {POSSIBILITIES.map((p, i) => (
           <li key={p} className="flex gap-4 rounded-md border border-white/15 bg-white/5 p-5">
@@ -324,7 +177,7 @@ export function ClosingSlide({ go, launchDemo }: SlideProps) {
       <p className="mt-8 max-w-4xl text-xl leading-relaxed text-white/75 md:text-2xl">The biggest opportunity isn&rsquo;t simply generating code faster. It&rsquo;s shortening the distance between understanding a problem and validating a possible solution.</p>
       <div className="mt-10 flex flex-wrap gap-3">
         <button onClick={launchDemo} className={btnPrimary}>Explore {BRAND} <ExternalLink className="size-5" aria-hidden="true" /></button>
-        <button onClick={() => go(4)} className={btnGhost}>View Architecture <ArrowRight className="size-5" aria-hidden="true" /></button>
+        <button onClick={() => go(slideIndex("architecture"))} className={btnGhost}>View Architecture <ArrowRight className="size-5" aria-hidden="true" /></button>
       </div>
       <p className="mt-10 max-w-xl text-sm leading-relaxed text-white/45">{DISCLAIMER}</p>
     </div>

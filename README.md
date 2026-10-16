@@ -34,7 +34,7 @@ A full-screen, 10-minute interactive talk, separate from the marketing site (no 
 - Content, notes, and timings live in `src/components/guild/content.ts`. Branding string: `BRAND` there ("MoeTech"); the portal itself remains RNA Tek-branded and is untouched.
 - Structure: existing pages moved into the `(site)` route group (URLs unchanged) so only they get the site header/footer; `/ai-guild` uses the bare root layout. `not-found.tsx` renders its own header/footer.
 - Status labels used throughout: Implemented (works in the prototype), Simulated (in-browser stand-in), Planned (not built). Fictional data only; indexing is disabled.
-- Talk time: 10:00 (45/60/80/70/80/150/55/35/25 seconds per section).
+- Talk time: 10:00 across 12 slides (per-slide targets in `content.ts`). The API walkthrough steps with the `.` and `,` keys. See `AUDIT.md` for the implementation audit (what is real, simulated, and planned).
 
 ### Verify
     npm run lint && npx tsc --noEmit && npm run build && npx next start -p 3100

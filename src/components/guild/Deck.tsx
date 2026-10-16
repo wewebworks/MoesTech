@@ -4,13 +4,14 @@ import { motion, useReducedMotion } from "motion/react";
 import { ChevronLeft, ChevronRight, Maximize2, Minimize2, MonitorPlay, NotebookPen } from "lucide-react";
 import { BRAND, DEMO_PATH, SLIDES, fmt, TOTAL_SECONDS } from "./content";
 import { rememberReturn, useSlide } from "./deckState";
-import {
-  ArchitectureSlide, ClosingSlide, DemoSlide, ExperienceSlide, IntroSlide, JourneySlide, LessonsSlide, ProblemSlide, WorkSlide,
-  type SlideProps,
-} from "./Slides";
+import { ClosingSlide, DemoSlide, IntroSlide, LessonsSlide, ProblemSlide, WorkSlide } from "./Slides";
+import { ExperienceSlide, JourneySlide } from "./SlidesPO";
+import { ArchitectureSlide, StackSlide } from "./SlidesTech";
+import { ApiSlide, OwnershipSlide } from "./SlidesApi";
+import type { SlideProps } from "./ui";
 
 const VIEWS: ((p: SlideProps) => ReactNode)[] = [
-  IntroSlide, ProblemSlide, ExperienceSlide, JourneySlide, ArchitectureSlide, DemoSlide, LessonsSlide, WorkSlide, ClosingSlide,
+  IntroSlide, ProblemSlide, ExperienceSlide, JourneySlide, StackSlide, ArchitectureSlide, OwnershipSlide, ApiSlide, DemoSlide, LessonsSlide, WorkSlide, ClosingSlide,
 ];
 
 export function Deck() {
@@ -63,6 +64,18 @@ export function Deck() {
 
   useEffect(() => { scroller.current?.scrollTo({ top: 0 }); }, [index]);
 
+  // On short desktop screens (720p projectors, split windows) scale rem so every slide still fits.
+  useEffect(() => {
+    const root = document.documentElement;
+    const fit = () => {
+      const k = window.innerWidth >= 1024 ? Math.min(1, Math.max(0.7, window.innerHeight / 900)) : 1;
+      root.style.fontSize = k === 1 ? "" : (16 * k).toFixed(2) + "px";
+    };
+    fit();
+    window.addEventListener("resize", fit);
+    return () => { window.removeEventListener("resize", fit); root.style.fontSize = ""; };
+  }, []);
+
   const View = VIEWS[index];
   const slide = SLIDES[index];
   const iconBtn = "inline-flex items-center gap-2 rounded-md border border-white/20 px-3 py-2 text-xs font-semibold text-white/85 transition-colors hover:bg-white/10 hover:text-white";
@@ -107,7 +120,7 @@ export function Deck() {
           <span className="hidden text-xs tabular-nums text-white/45 md:inline"><MonitorPlay className="mr-1 inline size-3.5" aria-hidden="true" />{fmt(TOTAL_SECONDS)} talk</span>
           <button onClick={() => goTo(index + 1)} disabled={index === SLIDES.length - 1} aria-label="Next slide" className={`${iconBtn} disabled:opacity-30`}><ChevronRight className="size-4" aria-hidden="true" /></button>
         </div>
-        <p className="mt-2 hidden text-[11px] text-white/35 md:block">← → navigate · 1–9 jump · F full screen · P presenter view</p>
+        <p className="mt-2 hidden text-[11px] text-white/35 md:block">← → navigate · 1–9 jump · . , step the API flow · F full screen · P presenter view</p>
       </footer>
     </div>
   );
